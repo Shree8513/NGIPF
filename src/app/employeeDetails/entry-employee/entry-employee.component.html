@@ -1,5 +1,136 @@
-<div class="card">
-    <p-toast></p-toast>
-    <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="true"></p-steps>
+<div class="card p-2">
+    <p-divider align="left" type="solid">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-file mr-2"></i>
+            <p-button [icon]="activeState[0] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(0)" styleClass="p-button-text" label="Basic"></p-button>
+        </div>
+    </p-divider>
+
+    <p-accordion>
+        <p-accordionTab header="Basic" *ngIf="activeState[0]">
+            <p-divider align="left" type="solid">
+                <div class="inline-flex align-items-center">
+                    <i class="pi pi-file mr-2"></i>
+                    <p-button [icon]="activeState[1] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(1)" styleClass="p-button-text" label="Personal Details"></p-button>
+                </div>
+            </p-divider>
+            <p-accordionTab header="Personal" *ngIf="activeState[1]">
+                <div class="grid">
+                    <div class="col-12">
+                        <div class="card">
+                            <form [formGroup]="addPersonal" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                                <div class="flex justify-content-center gap-2 w-full">
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>Employee ID<span class="text-red-700">*</span></label>
+                                            <input pInputText formControlName="empID" id="empID" type="text" />
+                                            <small *ngIf="isInvalidAndTouched('empID')" class="p-error">Employee ID is required. </small>
+                                        </div>
+                                    </div>
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>PF Account NO.<span class="text-red-700">*</span></label>
+                                            <input pInputText formControlName="pfAcc" id="pfAcc" type="text" />
+                                            <small *ngIf="isInvalidAndTouched('pfAcc')" class="p-error">PF No. is required </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-content-center gap-2 w-full">
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>Name<span class="text-red-700">*</span> </label>
+                                            <input pInputText formControlName="name" id="name" type="text" />
+                                            <small *ngIf="isInvalidAndTouched('name')" class="p-error">Provide Name. </small>
+                                        </div>
+                                    </div>
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>Gender<span class="text-red-700">*</span> </label>
+                                            <input pInputText formControlName="gender" id="gender" type="text" />
+                                            <small *ngIf="isInvalidAndTouched('gender')" class="p-error">Provide Gender. </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-content-center gap-2 w-full">
+                                    <div class="field flex-1">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Religion<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="religion" id="religion" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('religion')" class="p-error">Religion is Required.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>Date of Birth<span class="text-red-700">*</span> </label>
+                                            <p-calendar formControlName="selectedDOB" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                            <small *ngIf="isInvalidAndTouched('selectedDOB')" class="p-error">Date of Birth is required. </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-content-center gap-2 w-full">
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>PAN</label>
+                                            <input pInputText formControlName="pan" id="pan" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>Adhaar NO.</label>
+                                            <input pInputText formControlName="adhaar" id="adhaar" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-content-center gap-2 w-full">
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>Marital Status<span class="text-red-700">*</span> </label>
+                                            <input pInputText formControlName="maritalStatus" id="maritalStatus" type="text" />
+                                            <small *ngIf="isInvalidAndTouched('maritalStatus')" class="p-error">Mention Marital Status.</small>
+                                        </div>
+                                    </div>
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>As on/with Effect From<span class="text-red-700">*</span> </label>
+                                            <p-calendar formControlName="selectedEffectDate" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                            <small *ngIf="isInvalidAndTouched('selectedEffectDate')" class="p-error">As on/with effect From field is required.. </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </p-accordionTab>
+            <p-divider align="left" type="solid">
+                <div class="inline-flex align-items-center">
+                    <i class="pi pi-file mr-2"></i>
+                    <p-button [icon]="activeState[2] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(2)" styleClass="p-button-text" label="Service Details"></p-button>
+                </div>
+            </p-divider>
+        </p-accordionTab>
+    </p-accordion>
+
+    <div class="p-grid p-justify-center">
+        <div class="p-col-12 p-md-6 p-d-flex p-flex-column p-jc-center">
+            <div>
+                <div class="flex justify-content-between flex-wrap mb-4" style="padding: 5px; border: 1px black solid; border-radius: 6px">
+                    <div class="p-2">
+                        <strong>Reference No:</strong>
+                    </div>
+                    <div class="p-2">
+                        <strong>Gross Amount : </strong>
+                    </div>
+                    <div class="p-2">
+                        <strong>Net Amount :</strong>
+                    </div>
+                    <div class="p-2">
+                        <strong>Bill Status :</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<router-outlet></router-outlet>
