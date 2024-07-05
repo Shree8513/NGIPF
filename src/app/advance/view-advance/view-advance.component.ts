@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-view-advance',
   templateUrl: './view-advance.component.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewAdvanceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+  dppgAdvanceSearchClick(){
+    this.router.navigate(['advance/viewAdvance/dppgAdvanceSearch']);
+  }
+  masterMaintanceClick(){
+    this.router.navigate(['advance/viewAdvance/masterMaintanace']);
   }
 
 }

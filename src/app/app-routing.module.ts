@@ -45,6 +45,11 @@ import { PermissionOfInitiationComponent } from './opening-balance-capture/permi
 import { PendingRequestListOfOtherUserComponent } from './opening-balance-capture/pending-request-list-of-other-user/pending-request-list-of-other-user.component';
 import { OperatorListHavingVeBalanceBypassedComponent } from './opening-balance-capture/operator-list-having-ve-balance-bypassed/operator-list-having-ve-balance-bypassed.component';
 import { ViewAdvanceComponent } from './advance/view-advance/view-advance.component';
+import { DppgAdvanceSearchComponent } from './advance/dppg-advance-search/dppg-advance-search.component';
+import { MasterMaintanceComponent } from './advance/master-maintance/master-maintance.component';
+import { EligibilityMasterComponent } from './advance/eligibility-master/eligibility-master.component';
+import { PurposeMasterComponent } from './advance/purpose-master/purpose-master.component';
+import { PurposeTAggingMasterComponent } from './advance/purpose-tagging-master/purpose-tagging-master.component';
 
 
 @NgModule({
@@ -93,6 +98,11 @@ import { ViewAdvanceComponent } from './advance/view-advance/view-advance.compon
                         {path:'Interest-credit-bill-statement/TR-43-for-final-payment',component:TRForFinalPaymentComponent},
                         {path:'Interest-credit-bill-statement/interest-credit-generation-master',component:InterestCreditGenerationMasterComponent},
                         {path:'advance/viewAdvance',component:ViewAdvanceComponent},
+                        {path:'advance/viewAdvance/dppgAdvanceSearch',component:DppgAdvanceSearchComponent},
+                        {path:'advance/viewAdvance/masterMaintanace',component:MasterMaintanceComponent},
+                        {path:'advance/viewAdvance/masterMaintanace/eligibilityMaster',component:EligibilityMasterComponent},
+                        {path:'advance/viewAdvance/masterMaintanace/purposeMaster',component:PurposeMasterComponent},
+                        {path:'advance/viewAdvance/masterMaintanace/purposeTaggingMaster',component:PurposeTAggingMasterComponent},
 
 
                         
