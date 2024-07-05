@@ -56,4 +56,7 @@ export class DashboardComponent implements OnInit {
     BillClick(){
          this.router.navigate(['Interest-credit-bill-statement'])
     }
+    advanceClick(){
+        this.router.navigate(['advance/viewAdvance'])
+    }
 }

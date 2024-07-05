@@ -44,6 +44,7 @@ import { ViewComponent } from './opening-balance-capture/view/view.component';
 import { PermissionOfInitiationComponent } from './opening-balance-capture/permission-of-initiation/permission-of-initiation.component';
 import { PendingRequestListOfOtherUserComponent } from './opening-balance-capture/pending-request-list-of-other-user/pending-request-list-of-other-user.component';
 import { OperatorListHavingVeBalanceBypassedComponent } from './opening-balance-capture/operator-list-having-ve-balance-bypassed/operator-list-having-ve-balance-bypassed.component';
+import { ViewAdvanceComponent } from './advance/view-advance/view-advance.component';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { OperatorListHavingVeBalanceBypassedComponent } from './opening-balance-
                         {path:'Interest-credit-bill-statement/initiate_pf_interest_calculation',component:InitiatePfInterestCalculationComponent},
                         {path:'Interest-credit-bill-statement/interest_credit_bil_summary',component:InterestCreditBillSummaryComponent},
                         {path:'Interest-credit-bill-statement/TR-43-for-final-payment',component:TRForFinalPaymentComponent},
-                        {path:'Interest-credit-bill-statement/interest-credit-generation-master',component:InterestCreditGenerationMasterComponent}
+                        {path:'Interest-credit-bill-statement/interest-credit-generation-master',component:InterestCreditGenerationMasterComponent},
+                        {path:'advance/viewAdvance',component:ViewAdvanceComponent},
 
 
                         
