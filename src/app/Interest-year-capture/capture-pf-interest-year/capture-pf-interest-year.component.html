@@ -1,0 +1,113 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <div class="flex align-items-center">
+                <i class="pi pi-angle-double-right mr-2"></i>
+                <h5>Capture PF Interest Year by DPPG</h5>
+            </div>
+            <!-- <form class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                <div class="flex justify-content-center gap-2 w-full">
+                    <div class="field flex-1">
+                        <div class="flex-column flex gap-2">
+                            <label>Debit Head Of Account</label>
+                            <input pInputText id="debit_head_of_account" type="text" />
+                        </div>
+                    </div>
+                    <div class="field flex-1">
+                        <div class="flex-column flex gap-2">
+                            <label> Head Of Account</label>
+                            <input pInputText id="hoa" type="text" />
+                        </div>
+                    </div>
+                </div>
+               
+                    <div class="field flex-1">
+                        <div class="flex-column flex gap-2">
+                            <label>Operator Name</label>
+                            <input pInputText id="operator_name" type="text" />
+                        </div>
+                    </div>
+                
+                <div class="flex justify-content-center gap-2 w-full">
+                    <div class="field flex-1">
+                        <div class="flex-column flex gap-2">
+                            <label>Search By</label>
+                            <input pInputText id="search_by" type="text" />
+                        </div>
+                    </div>
+                    <div class="field flex-1">
+                        <div class="flex-column flex gap-2">
+                            <label>Status</label>
+                            <input pInputText id="status" type="text" />
+                        </div>
+                    </div>
+                </div>
+               
+            </form> -->
+
+            <form [formGroup]="capturePfInterestYear" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                <div class="flex justify-content-center gap-2 w-full">
+                  <div class="field flex-1">
+                    <div class="flex-column flex gap-2">
+                      <label>Debit Head Of Account</label>
+                      <input pInputText formControlName="DebitHeadOfAccount" id="debit_head_of_account" type="text" />
+                      <small *ngIf="isInvalidAndTouched('DebitHeadOfAccount')" class="p-error">
+                        Debit Head Of Account is required.
+                      </small>
+                    </div>
+                  </div>
+                  <div class="field flex-1">
+                    <div class="flex-column flex gap-2">
+                      <label>Head Of Account</label>
+                      <input pInputText formControlName="HeadOfAccount" id="hoa" type="text" />
+                      <small *ngIf="isInvalidAndTouched('HeadOfAccount')" class="p-error">
+                        Head Of Account is required.
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-content-center gap-2 w-full">
+                    <div class="field flex-1">
+                        <div class="flex-column flex gap-2">
+                          <label>Operator Name</label>
+                          <input pInputText formControlName="OperatorName" id="operator_name" type="text" />
+                          <small *ngIf="isInvalidAndTouched('OperatorName')" class="p-error">
+                            Operator Name is required.
+                          </small>
+                        </div>
+                      </div>
+                      <div class="field flex-1">
+                        <div class="flex-column flex gap-2">
+                          <label>Search By</label>
+                          <input pInputText formControlName="SearchBy" id="search_by" type="text" />
+                          <small *ngIf="isInvalidAndTouched('SearchBy')" class="p-error">
+                            Search By is required.
+                          </small>
+                        </div>
+                      </div>
+                </div>
+                <div class="flex justify-content-center gap-2 w-full">
+                  <div class="field flex-1">
+                    <div class="flex-column flex gap-2">
+                      <label>Status</label>
+                      <input pInputText formControlName="Status" id="status" type="text" />
+                      <small *ngIf="isInvalidAndTouched('Status')" class="p-error">
+                        Status is required.
+                      </small>
+                    </div>
+                  </div>
+                  <div class="field flex-1">
+                    
+                  </div>
+                </div>
+            </form>
+              
+            <div class="flex flex-wrap gap-2 align-items-center justify-content-center">
+                <button pButton pRipple label="Back" onclick="history.back()"></button>
+                <p-button label="Reset" icon="pi pi-replay" styleClass="p-button-warning"></p-button>
+                <p-button label="Search" icon="pi pi-search" styleClass="p-button-info"></p-button>
+            </div>
+        
+    
+
+
