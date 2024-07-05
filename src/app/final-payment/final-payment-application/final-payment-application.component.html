@@ -10,15 +10,15 @@
                 <div class="flex justify-content-center gap-2 w-full">
                   <div class="field flex-1">
                     <div class="flex-column flex gap-2">
-                      <label>Search By</label>
-                      <input pInputText formControlName="Search_By" id="Search_By" type="text" />
+                      <label>Search By<span class="text-red-700">*</span></label>
+                      <p-dropdown [options]="dropdownItemsearchType" [(ngModel)]="selectedItemSearch" formControlName="Search_By" optionLabel="name"placeholder="Search By"></p-dropdown>
                      
                     </div>
                   </div>
                   <div class="field flex-1">
                     <div class="flex-column flex gap-2">
-                        <label>Financial Year</label>
-                        <p-dropdown [options]="dropdownItemYearType" [(ngModel)]="selectedItemYear" formControlName="Financial_Year" optionLabel="Year"></p-dropdown> 
+                        <label>Financial Year<span class="text-red-700">*</span></label>
+                        <p-dropdown [options]="dropdownItemYearType" [(ngModel)]="selectedItemYear" formControlName="Financial_Year" optionLabel="Year"placeholder="Select Year"></p-dropdown> 
                       </div>
                   </div>
                 </div>

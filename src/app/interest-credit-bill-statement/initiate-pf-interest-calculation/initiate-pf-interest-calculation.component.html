@@ -11,9 +11,9 @@
         <div class="flex justify-content-center gap-2 w-full">
           <div class="field flex-1">
             <div class="flex-column flex gap-2">
-              <label>Financial Year</label>
+              <label>Financial Year<span class="text-red-700">*</span></label>
               <p-dropdown [options]="dropdownItemYearType" [(ngModel)]="selectedItemYear"
-                formControlName="Financial_Year" optionLabel="Year"></p-dropdown>
+                formControlName="Financial_Year" optionLabel="Year" placeholder="select year"></p-dropdown>
             </div>
           </div>
         </div>

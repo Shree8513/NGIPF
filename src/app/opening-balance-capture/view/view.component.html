@@ -11,7 +11,7 @@
                 <div class="flex justify-content-center gap-2 w-full">
                   <div class="field flex-1">
                     <div class="flex-column flex gap-2">
-                      <label>Head of Account</label>
+                      <label>Head of Account<span class="text-red-700">*</span></label>
                       <input pInputText formControlName="Head_of_Account" id="Head_of_Account" type="text" />
                       <small *ngIf="isInvalidAndTouched('Head_of_Account')" class="p-error">
                         HOA is required.
@@ -23,7 +23,7 @@
                 <div class="flex-row flex justify-content-center gap-2 w-full">
                   <div class="field flex-1">
                     <div class="flex-column flex gap-2">
-                      <label>Treasury</label>
+                      <label>Treasury<span class="text-red-700">*</span></label>
                       <input pInputText formControlName="Treasury" id="Treasury" type="text" />
                       <small *ngIf="isInvalidAndTouched('Treasury')" class="p-error">
                         Treasury is required.
@@ -35,7 +35,7 @@
                 <div class="flex justify-content-center gap-2 w-full">
                   <div class="field flex-1">
                     <div class="flex-column flex gap-2">
-                      <label>PFD Admin</label>
+                      <label>PFD Admin<span class="text-red-700">*</span></label>
                       <input pInputText formControlName="PFDAdmin" id="PFD Admin" type="text" />
                       <small *ngIf="isInvalidAndTouched('PFDAdmin')" class="p-error">
                         PFD Admin is required.

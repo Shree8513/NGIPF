@@ -10,7 +10,7 @@
                 <div class="flex justify-content-center gap-2 w-full">
                     <div class="field flex-1">
                         <div class="flex-column flex gap-2">
-                            <label>Head of Account*</label>
+                            <label>Head of Account<span class="text-red-700">*</span></label>
                             <input pInputText formControlName="Head_of_Account" id="Head_of_Account" type="text" />
                             <small *ngIf="isInvalidAndTouched('Head_of_Account')" class="p-error">
                                 HOA is required.
@@ -19,7 +19,7 @@
                     </div>
                     <div class="field flex-1">
                         <div class="flex-column flex gap-2">
-                            <label>Financial Month</label>
+                            <label>Financial Month<span class="text-red-700">*</span></label>
                             <input pInputText formControlName="Financial_Month" id="Financial Month" type="text" />
                             <small *ngIf="isInvalidAndTouched('Financial Month')" class="p-error">
                                 Financial Month is required.
@@ -30,7 +30,7 @@
                 <div class="flex-row flex justify-content-center gap-2 w-full">
                     <div class="field flex-1">
                         <div class="flex-column flex gap-2">
-                            <label>Financial Year*</label>
+                            <label>Financial Year<span class="text-red-700">*</span></label>
                             <p-dropdown [options]="dropdownItemYearType" [(ngModel)]="selectedItemYear" formControlName="Financial_Year" optionLabel="Year"></p-dropdown>
                         </div>
                     </div>

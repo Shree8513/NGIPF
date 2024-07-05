@@ -7,6 +7,10 @@ interface Year{
   Year: String;
   code: string;
 } 
+interface name{
+  name: String;
+  code: string;
+} 
 
 @Component({
   selector: 'app-final-payment-application',
@@ -18,7 +22,8 @@ export class FinalPaymentApplicationComponent implements OnInit {
   dropdownItemYearType: Year[];
   selectedItemYear:Year;
   PaymentForm!: FormGroup;
-  
+  dropdownItemsearchType: name[];
+  selectedItemSearch: name;
 
   constructor(private fb: FormBuilder) {
     this.dropdownItemYearType = [
@@ -48,6 +53,14 @@ export class FinalPaymentApplicationComponent implements OnInit {
       { Year: '2023', code: '2023' },
       { Year: '2024', code: '2024' },
     ];
+
+    this.dropdownItemsearchType = [
+
+      { name: 'Financial year', code: 'Financial year' },
+      { name: 'PF Account No.', code: 'PF Account No.' },
+      { name: 'Employee Name', code: 'Employee Name' },
+      { name: 'Employee Id', code: 'Employee Id' },
+    ]
   }
   ngOnInit(): void {
     this.initializeForm();

@@ -51,6 +51,7 @@ export class TransferHistoryComponent implements OnInit {
       Status: ['', Validators.required],
       Treasury: ['', [Validators.required, Validators.pattern(/^\d+$/)]], // Assuming EmployeeId is a numeric value
       Sanction_Admin: ['', Validators.required],
+      Search_By: ['', Validators.required],
       
     });
   }

@@ -10,7 +10,7 @@
           <div class="flex justify-content-center gap-2 w-full">
             <div class="field flex-1">
               <div class="flex-column flex gap-2">
-                <label>Office*</label>
+                <label>Office<span class="text-red-700">*</span></label>
                 <input pInputText formControlName="Office" id="Office" type="text" />
                 <small *ngIf="isInvalidAndTouched('Office')" class="p-error">
                   Office is required.

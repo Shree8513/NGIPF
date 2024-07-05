@@ -10,7 +10,7 @@
           <div class="flex justify-content-center gap-2 w-full">
             <div class="field flex-1">
               <div class="flex-column flex gap-2">
-                <label>Head of Account*</label>
+                <label>Head of Account<span class="text-red-700">*</span></label>
                 <input pInputText formControlName="Head_of_Account" id="Head_of_Account" type="text" />
                 <small *ngIf="isInvalidAndTouched('Head_of_Account')" class="p-error">
                   Head of Account is required.
