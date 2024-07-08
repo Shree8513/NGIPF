@@ -8,12 +8,20 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
     styleUrls: ['./entry-employee.component.scss'],
 })
 export class EntryEmployeeComponent implements OnInit {
-    activeState: boolean[] = [true, false, false];
+    activeState: boolean[] = [false, false, false,false,false,false,false,false,false,false];
     toggle(index: number) {
         this.activeState[index] = !this.activeState[index];
     }
     addPersonal!: FormGroup;
     addService!: FormGroup;
+    addContact!:FormGroup;
+    addSalary!:FormGroup;
+    addPfOffice!:FormGroup;
+    addDDO!:FormGroup;
+    addLFOperator!:FormGroup;
+    addBank!:FormGroup;
+
+    checked: boolean = false;
     maxDateValue: Date = new Date(Date.now());
     constructor(private fb: FormBuilder) {}
 
@@ -34,6 +42,51 @@ export class EntryEmployeeComponent implements OnInit {
             maritalStatus: ['', Validators.required],
             selectedEffectFormDate: [null, Validators.required],
         });
+        this.addBank=this.fb.group({
+            ifsc:['', Validators.required],
+            bankName:['', Validators.required],
+            accNo:['',Validators.required],
+            conAccNo:['', Validators.required],
+            benName:['', Validators.required],
+            selectedWED:[null,Validators.required],
+            remarks:['',Validators.required],
+        });
+        this.addContact=this.fb.group({
+            mobileno:[''],
+            emailId:[''],
+            line1:[''],
+            line2:[''],
+            state:[''],
+            district:[''],
+            pinCode:[''],
+            selectedAED:[null,Validators.required],
+            checked:['']
+        });
+        this.addSalary=this.fb.group({
+            auto:[''],
+            selectedWED:[null,Validators.required],
+            basicPay:[''],
+            gradePay:[''],
+        });
+        this.addPfOffice=this.fb.group({
+            HOOCode:[''],
+            offName:[''],
+            pfdAdmin:[''],
+            WED:[''],
+            RecommAdmin:[''],
+            sancationAdmin:[''],
+            pfAdmin:[''],
+        })
+        this.addDDO=this.fb.group({
+            DDOCode:[''],
+            tresuryCode:[''],
+            WED:[''],
+        });
+        this.addLFOperator=this.fb.group({
+            OperatorName:[''],
+            tresuryCode:[''],
+            WED:[''],
+        })
     }
     initializeSeviceForm(): void {
         this.addService = this.fb.group({
