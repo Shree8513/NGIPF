@@ -16,7 +16,7 @@ interface Year{
 export class InterestCreditBillSummaryComponent implements OnInit {
 
   dropdownItemYearType: Year[];
-  selectedItemYear:Year;
+  
   PFInterestForm !: FormGroup;
 
   constructor(private fb: FormBuilder) {

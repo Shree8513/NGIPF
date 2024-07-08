@@ -40,7 +40,7 @@
                   <div class="field flex-1 w-full">
                     <div class="flex-column flex gap-2">
                       <label>Financial Year<span class="text-red-700">*</span></label>
-                      <p-dropdown [options]="dropdownItemYearType" [(ngModel)]="selectedItemYear" formControlName="Financial_Year" class="w-full" optionLabel="Year"></p-dropdown> 
+                      <p-dropdown [options]="dropdownItemYearType"formControlName="Financial_Year" class="w-full" optionLabel="Year"></p-dropdown> 
                     </div>
                   </div>
                 </div>
@@ -77,7 +77,7 @@
                     <div class="field flex-1 w-full">
                       <div class="flex-column flex gap-2">
                         <label> Search By<span class="text-red-700">*</span></label>
-                        <p-dropdown [options]="dropdownItemSearchType" [(ngModel)]="selectedItemSearch" class="w-full" formControlName="Search_By" optionLabel="Name"></p-dropdown> 
+                        <p-dropdown [options]="dropdownItemSearchType"  class="w-full" formControlName="Search_By" optionLabel="Name"></p-dropdown> 
                       </div>
                     </div>
                   </div>

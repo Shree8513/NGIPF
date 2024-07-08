@@ -15,7 +15,7 @@ interface Year{
 export class TRForFinalPaymentComponent implements OnInit {
 
   dropdownItemYearType: Year[];
-  selectedItemYear:Year;
+  
   FinalPaymentForm!: FormGroup;
   
 
