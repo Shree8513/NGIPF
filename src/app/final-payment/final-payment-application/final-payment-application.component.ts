@@ -20,11 +20,10 @@ interface name{
 export class FinalPaymentApplicationComponent implements OnInit {
 
   dropdownItemYearType: Year[];
-  selectedItemYear:Year;
+  
   PaymentForm!: FormGroup;
   dropdownItemsearchType: name[];
-  selectedItemSearch: name;
-
+  
   constructor(private fb: FormBuilder) {
     this.dropdownItemYearType = [
       { Year: '2000', code: '2000' },

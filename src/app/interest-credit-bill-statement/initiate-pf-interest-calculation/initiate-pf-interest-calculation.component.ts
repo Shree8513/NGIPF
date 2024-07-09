@@ -14,7 +14,7 @@ interface Year{
 })
 export class InitiatePfInterestCalculationComponent implements OnInit {
   dropdownItemYearType: Year[];
-  selectedItemYear:Year;
+  
   PFInterestForm !: FormGroup;
 
   constructor(private fb: FormBuilder) {

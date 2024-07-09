@@ -19,10 +19,10 @@ interface Name{
 export class TransferHistoryComponent implements OnInit {
 
   dropdownItemYearType: Year[];
-  selectedItemYear:Year;
+  
   transferhistoryForm!: FormGroup;
   dropdownItemSearchType :Name[];
-  selectedItemSearch:Name;
+  
 
   constructor(private fb: FormBuilder) {
     this.dropdownItemYearType = [
