@@ -8,129 +8,713 @@
 
     <p-accordion>
         <p-accordionTab header="Basic" *ngIf="activeState[0]">
-            <p-divider align="left" type="solid">
-                <div class="inline-flex align-items-center">
-                    <i class="pi pi-file mr-2"></i>
-                    <p-button [icon]="activeState[1] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(1)" styleClass="p-button-text" label="Personal Details"></p-button>
-                </div>
-            </p-divider>
-            <p-accordionTab header="Personal" *ngIf="activeState[1]">
-                <div class="grid">
-                    <div class="col-12">
-                        <div class="card">
-                            <form [formGroup]="addPersonal" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
-                                <div class="flex justify-content-center gap-2 w-full">
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>Employee ID<span class="text-red-700">*</span></label>
-                                            <input pInputText formControlName="empID" id="empID" type="text" />
-                                            <small *ngIf="isInvalidAndTouched('empID')" class="p-error">Employee ID is required. </small>
-                                        </div>
-                                    </div>
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>PF Account NO.<span class="text-red-700">*</span></label>
-                                            <input pInputText formControlName="pfAcc" id="pfAcc" type="text" />
-                                            <small *ngIf="isInvalidAndTouched('pfAcc')" class="p-error">PF No. is required </small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex justify-content-center gap-2 w-full">
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>Name<span class="text-red-700">*</span> </label>
-                                            <input pInputText formControlName="name" id="name" type="text" />
-                                            <small *ngIf="isInvalidAndTouched('name')" class="p-error">Provide Name. </small>
-                                        </div>
-                                    </div>
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>Gender<span class="text-red-700">*</span> </label>
-                                            <input pInputText formControlName="gender" id="gender" type="text" />
-                                            <small *ngIf="isInvalidAndTouched('gender')" class="p-error">Provide Gender. </small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex justify-content-center gap-2 w-full">
-                                    <div class="field flex-1">
+            <div class="card">
+                <p-divider align="center" type="solid">
+                    <div class="inline-flex align-items-center">
+                        <i class="pi pi-file mr-2"></i>
+                        <p-button [icon]="activeState[1] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(1)" styleClass="p-button-text" label="Personal Details"></p-button>
+                    </div>
+                </p-divider>
+                <p-accordionTab header="Personal" *ngIf="activeState[1]">
+                    <div class="grid">
+                        <div class="col-12">
+                            <div class="card">
+                                <form [formGroup]="addPersonal" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                                    <div class="flex justify-content-center gap-2 w-full">
                                         <div class="field flex-1">
                                             <div class="flex-column flex gap-2">
-                                                <label>Religion<span class="text-red-700">*</span> </label>
-                                                <input pInputText formControlName="religion" id="religion" type="text" />
-                                                <small *ngIf="isInvalidAndTouched('religion')" class="p-error">Religion is Required.</small>
+                                                <label>Employee ID<span class="text-red-700">*</span></label>
+                                                <input pInputText formControlName="empID" id="empID" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('empID')" class="p-error">Employee ID is required. </small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>PF Account NO.<span class="text-red-700">*</span></label>
+                                                <input pInputText formControlName="pfAcc" id="pfAcc" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('pfAcc')" class="p-error">PF No. is required </small>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>Date of Birth<span class="text-red-700">*</span> </label>
-                                            <p-calendar formControlName="selectedDOB" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
-                                            <small *ngIf="isInvalidAndTouched('selectedDOB')" class="p-error">Date of Birth is required. </small>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Name<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="name" id="name" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('name')" class="p-error">Provide Name. </small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Gender<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="gender" id="gender" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('gender')" class="p-error">Provide Gender. </small>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="flex justify-content-center gap-2 w-full">
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>PAN</label>
-                                            <input pInputText formControlName="pan" id="pan" type="text" />
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="field flex-1">
+                                                <div class="flex-column flex gap-2">
+                                                    <label>Religion<span class="text-red-700">*</span> </label>
+                                                    <input pInputText formControlName="religion" id="religion" type="text" />
+                                                    <small *ngIf="isInvalidAndTouched('religion')" class="p-error">Religion is Required.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Date of Birth<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedDOB" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedDOB')" class="p-error">Date of Birth is required. </small>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>Adhaar NO.</label>
-                                            <input pInputText formControlName="adhaar" id="adhaar" type="text" />
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>PAN</label>
+                                                <input pInputText formControlName="pan" id="pan" type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Adhaar NO.</label>
+                                                <input pInputText formControlName="adhaar" id="adhaar" type="text" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="flex justify-content-center gap-2 w-full">
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>Marital Status<span class="text-red-700">*</span> </label>
-                                            <input pInputText formControlName="maritalStatus" id="maritalStatus" type="text" />
-                                            <small *ngIf="isInvalidAndTouched('maritalStatus')" class="p-error">Mention Marital Status.</small>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Marital Status<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="maritalStatus" id="maritalStatus" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('maritalStatus')" class="p-error">Mention Marital Status.</small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>As on/with Effect From<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedEffectFormDate" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedEffectFormDate')" class="p-error">As on/with effect From field is required. </small>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="field flex-1">
-                                        <div class="flex-column flex gap-2">
-                                            <label>As on/with Effect From<span class="text-red-700">*</span> </label>
-                                            <p-calendar formControlName="selectedEffectDate" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
-                                            <small *ngIf="isInvalidAndTouched('selectedEffectDate')" class="p-error">As on/with effect From field is required.. </small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </p-accordionTab>
-            <p-divider align="left" type="solid">
-                <div class="inline-flex align-items-center">
-                    <i class="pi pi-file mr-2"></i>
-                    <p-button [icon]="activeState[2] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(2)" styleClass="p-button-text" label="Service Details"></p-button>
-                </div>
-            </p-divider>
+                </p-accordionTab>
+                <p-divider align="center" type="solid">
+                    <div class="inline-flex align-items-center">
+                        <i class="pi pi-file mr-2"></i>
+                        <p-button [icon]="activeState[2] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(2)" styleClass="p-button-text" label="Service Details"></p-button>
+                    </div>
+                </p-divider>
+                <p-accordionTab header="Personal" *ngIf="activeState[2]">
+                    <div class="grid">
+                        <div class="col-12">
+                            <div class="card">
+                                <form [formGroup]="addService" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Old GPF NO.</label>
+                                                <input pInputText formControlName="GPFNo" id="GPFNo" type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>PF Account Status<span class="text-red-700">*</span></label>
+                                                <input pInputText formControlName="pfAccStatus" id="pfAccStatus" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('pfAccStatus')" class="p-error">PF Account Status is required.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Date of Joining in Service<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedDOJ" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedDOJ')" class="p-error">Approval No is Required.</small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Approval No. of Appointment in present post<span class="text-red-700">*</span></label>
+                                                <input pInputText formControlName="approvalNo" id="approvalNo" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('approvalNo')" class="p-error">Approval No is Required.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Approval Date of Appointment in present post<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedApprovalDate" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedApprovalDate')" class="p-error"> W.E.F Date is required. </small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>With Effect Date of Such Appointment<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedEffecteDate" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedEffecteDate')" class="p-error">With Effect Date of Such Appointment Date is required. </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Type<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="type" id="approvalNo" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('type')" class="p-error">Type is required. </small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>As on/with Effected From<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedEffectFormDate" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedEffectFormDate')" class="p-error"> As on/with effect From field is required.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Designation<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="designation" id="approvalNo" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('designation')" class="p-error">Designation is required. </small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>As on/with Effected From<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedEffectFormDate" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedEffectFormDate')" class="p-error"> As on/with effect From field is required.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>GPF/CPF<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="gpfcpf" id="approvalNo" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('gpfcpf')" class="p-error">Mention GPF/CPF. </small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Date of Retriment<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedDOR" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedDOR')" class="p-error"> As on/with effect From field is required.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>GPF/CPF<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="gpfcpf" id="approvalNo" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('gpfcpf')" class="p-error">Mention GPF/CPF. </small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Date of Retriment<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedDOR" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedDOR')" class="p-error"> As on/with effect From field is required.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Type of Termination<span class="text-red-700">*</span> </label>
+                                                <input pInputText formControlName="tot" id="approvalNo" type="text" />
+                                                <small *ngIf="isInvalidAndTouched('tot')" class="p-error">Mention GPF/CPF. </small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Date of Termination<span class="text-red-700">*</span> </label>
+                                                <p-calendar formControlName="selectedDOT" [maxDate]="maxDateValue" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                                <small *ngIf="isInvalidAndTouched('selectedDOT')" class="p-error"> As on/with effect From field is required.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </p-accordionTab>
+            </div>
         </p-accordionTab>
     </p-accordion>
 
-    <div class="p-grid p-justify-center">
-        <div class="p-col-12 p-md-6 p-d-flex p-flex-column p-jc-center">
-            <div>
-                <div class="flex justify-content-between flex-wrap mb-4" style="padding: 5px; border: 1px black solid; border-radius: 6px">
-                    <div class="p-2">
-                        <strong>Reference No:</strong>
-                    </div>
-                    <div class="p-2">
-                        <strong>Gross Amount : </strong>
-                    </div>
-                    <div class="p-2">
-                        <strong>Net Amount :</strong>
-                    </div>
-                    <div class="p-2">
-                        <strong>Bill Status :</strong>
+    <p-divider align="left" type="solid">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-file mr-2"></i>
+            <p-button [icon]="activeState[3] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(3)" styleClass="p-button-text" label="Contact"></p-button>
+        </div>
+    </p-divider>
+    <p-accordion>
+        <p-accordionTab header="Basic" *ngIf="activeState[3]">
+            <div class="grid">
+                <div class="col-12">
+                    <div class="card">
+                        <form [formGroup]="addContact" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Mobile NO.</label>
+                                        <input pInputText formControlName="mobileno" id="mobileno" type="text" />
+                                        <small class="text-blue-600">10 digit No only</small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Email ID:<span class="text-red-700">*</span></label>
+                                        <input pInputText formControlName="emailId" id="emailId" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="align-items-left justify-content-left text-blue-600">Present Address</h3>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Line1:</label>
+                                        <input pInputText formControlName="line1" id="line1" type="text" />
+                                        <small class="text-500">House No.,Street Name</small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Line2:</label>
+                                        <input pInputText formControlName="line2" id="line2" type="text" />
+                                        <small class="text-500">City,Town,Village</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>State</label>
+                                        <input pInputText formControlName="state" id="state" type="text" />
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>District</label>
+                                        <input pInputText formControlName="district" id="district" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Pin Code:</label>
+                                        <input pInputText formControlName="pinCode" id="pinCode" type="text" />
+                                        <small class="text-500">6 Digit Only</small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>As on/with Effective Date</label>
+                                        <p-calendar formControlName="selectedAED" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field-checkbox">
+                                <p-checkbox formControlName="checked" [binary]="true" inputId="binary"></p-checkbox>
+                                <label class="text-4xl font-italic" for="binary">Permatent Address same As Present Addresss</label>
+                            </div>
+                            <h3 class="align-items-left justify-content-left text-blue-600">Permatent Address</h3>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Line1:</label>
+                                        <input pInputText formControlName="line1" id="line1" type="text" />
+                                        <small class="text-500">House No.,Street Name</small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Line2:</label>
+                                        <input pInputText formControlName="line2" id="line2" type="text" />
+                                        <small class="text-500">City,Town,Village</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>State</label>
+                                        <input pInputText formControlName="state" id="state" type="text" />
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>District</label>
+                                        <input pInputText formControlName="district" id="district" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Pin Code:</label>
+                                        <input pInputText formControlName="pinCode" id="pinCode" type="text" />
+                                        <small class="text-500">6 Digit Only</small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>As on/with Effective Date</label>
+                                        <p-calendar formControlName="selectedAED" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="flex flex-wrap gap-2 align-items-center justify-content-center">
+                            <button pButton pRipple label="View Past Record"></button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </p-accordionTab>
+    </p-accordion>
+    <p-divider align="left" type="solid">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-file mr-2"></i>
+            <p-button [icon]="activeState[4] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(4)" styleClass="p-button-text" label="Salary"></p-button>
         </div>
-    </div>
+    </p-divider>
+    <p-accordion>
+        <p-accordionTab header="Basic" *ngIf="activeState[4]">
+            <div class="grid">
+                <div class="col-12">
+                    <div class="card">
+                        <form [formGroup]="addSalary" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>AutoFilled</label>
+                                        <input pInputText formControlName="auto" id="mobileno" type="text" />
+                                        <small class="text-500">This field will be auto fetched as per first date of subscription data</small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>With Effective Date</label>
+                                        <p-calendar formControlName="selectedWED" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                        <small class="text-500">This field will be auto fetched as per first date of subscription data</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Basic Pay<span>(In Rupees)</span></label>
+                                        <input pInputText formControlName="basicPay" id="basicPay" type="text" />
+                                        <small class="text-500">This field will be auto fetched as per first date of subscription data</small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>With Effective Date</label>
+                                        <p-calendar formControlName="selectedWED" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                        <small class="text-500">This field will be auto fetched as per first date of subscription data</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Grade Pay<span>(In Rupees)</span></label>
+                                        <input pInputText formControlName="gradePay" id="gradePay" type="text" />
+                                        <small class="text-500">This field will be auto fetched as per first date of subscription data</small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>With Effective Date</label>
+                                        <p-calendar formControlName="selectedWED" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                        <small class="text-500">This field will be auto fetched as per first date of subscription data</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </p-accordionTab>
+    </p-accordion>
+
+    <p-divider align="left" type="solid">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-file mr-2"></i>
+            <p-button [icon]="activeState[5] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(5)" styleClass="p-button-text" label="Office"></p-button>
+        </div>
+    </p-divider>
+    <p-accordion>
+        <p-accordionTab header="Basic" *ngIf="activeState[5]">
+            <div class="card">
+                <p-divider align="center" type="solid">
+                    <div class="inline-flex align-items-center">
+                        <i class="pi pi-file mr-2"></i>
+                        <p-button [icon]="activeState[6] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(6)" styleClass="p-button-text" label="PF Office Details"></p-button>
+                    </div>
+                </p-divider>
+                <p-accordionTab header="Personal" *ngIf="activeState[6]">
+                    <div class="grid">
+                        <div class="col-12">
+                            <div class="card">
+                                <form [formGroup]="addPfOffice" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>HOO Designation & Code</label>
+                                                <input pInputText formControlName="HOOCode" id="HOOCode" type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Office Name</label>
+                                                <input pInputText formControlName="offName" id="offName" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>PFD Admin Name & Code</label>
+                                                <input pInputText formControlName="pfdAdmin" id="pfdAdmin" type="text" />
+                                                <small class="text-blue-600">Operator HOA:</small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>With Effective Date</label>
+                                                <input pInputText formControlName="WED" id="WED" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>PF Tresury Name & Code</label>
+                                                <input pInputText formControlName="pfAdmin" id="pfAdmin" type="text" />
+                                                <small class="text-blue-600"></small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>With Effective Date</label>
+                                                <input pInputText formControlName="WED" id="WED" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Sanction Admin Name & Code</label>
+                                                <input pInputText formControlName="sancationAdmin" id="sancationAdmin" type="text" />
+                                                <small class="text-blue-600"></small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>With Effective Date</label>
+                                                <input pInputText formControlName="WED" id="WED" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Recommendation Admin Name & Code</label>
+                                                <input pInputText formControlName="RecommAdmin" id="RecommAdmin" type="text" />
+                                                <small class="text-blue-600"></small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>With Effective Date</label>
+                                                <input pInputText formControlName="WED" id="WED" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </p-accordionTab>
+                <p-divider align="center" type="solid">
+                    <div class="inline-flex align-items-center">
+                        <i class="pi pi-file mr-2"></i>
+                        <p-button [icon]="activeState[7] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(7)" styleClass="p-button-text" label="LF Operator"></p-button>
+                    </div>
+                </p-divider>
+                <p-accordionTab header="Personal" *ngIf="activeState[7]">
+                    <div class="grid">
+                        <div class="col-12">
+                            <div class="card">
+                                <form [formGroup]="addLFOperator" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Operator Name & Code(LF)</label>
+                                                <input pInputText formControlName="OperatorName" id="OperatorName" type="text" />
+                                                <small class="text-blue-600">Opeator HOA:</small>
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Tresury Name & Code<span>(LF)</span></label>
+                                                <input pInputText formControlName="tresuryCode" id="tresuryCode" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>With Effective Date<span>(LF Tresury)</span></label>
+                                                <input pInputText formControlName="WED" id="WED" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </p-accordionTab>
+
+                <p-divider align="center" type="solid">
+                    <div class="inline-flex align-items-center">
+                        <i class="pi pi-file mr-2"></i>
+                        <p-button [icon]="activeState[8] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(8)" styleClass="p-button-text" label="DDO Details"></p-button>
+                    </div>
+                </p-divider>
+                <p-accordionTab header="Personal" *ngIf="activeState[8]">
+                    <div class="grid">
+                        <div class="col-12">
+                            <div class="card">
+                                <form [formGroup]="addDDO" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>DDO Designation & Code</label>
+                                                <input pInputText formControlName="DDOCode" id="DDOCode" type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>Tresury Name & Code</label>
+                                                <input pInputText formControlName="tresuryCode" id="tresuryCode" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-center gap-2 w-full">
+                                        <div class="field flex-1">
+                                            <div class="flex-column flex gap-2">
+                                                <label>With Effective Date<span>(DDO)</span></label>
+                                                <input pInputText formControlName="WED" id="WED" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </p-accordionTab>
+                <div class="flex flex-wrap gap-2 align-items-center justify-content-center">
+                    <button pButton pRipple label="View Past Records"></button>
+                </div>
+            </div>
+        </p-accordionTab>
+    </p-accordion>
+
+    <p-divider align="left" type="solid">
+        <div class="inline-flex align-items-center">
+            <i class="pi pi-file mr-2"></i>
+            <p-button [icon]="activeState[9] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(9)" styleClass="p-button-text" label="Bank"></p-button>
+        </div>
+    </p-divider>
+
+    <p-accordion>
+        <p-accordionTab header="Basic" *ngIf="activeState[9]">
+            <div class="grid">
+                <div class="col-12">
+                    <div class="card">
+                        <form [formGroup]="addBank" class="flex w-9 mx-auto flex-column justify-content-center align-items-center p-5 gap-2">
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>IFSC<span class="text-red-700">*</span></label>
+                                        <input pInputText formControlName="ifsc" id="ifsc" type="text" />
+                                        <small *ngIf="isInvalidAndTouched('ifsc')" class="p-error">IFSC is required. </small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Bank Name<span class="text-red-700">*</span></label>
+                                        <input pInputText formControlName="bankName" id="bankName" type="text" />
+                                        <small *ngIf="isInvalidAndTouched('bankName')" class="p-error">Bank Name is required </small>
+                                        <small class="text-blue-600">Branch Name:</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Account No.<span class="text-red-700">*</span></label>
+                                        <input pInputText formControlName="accNo" id="accNo" type="text" />
+                                        <small *ngIf="isInvalidAndTouched('accNo')" class="p-error">Account No. is required. </small>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>Confirm Account No.</label>
+                                        <input pInputText formControlName="conAccNo" id="conAccNo" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>Beneficiary Name<span class="text-red-700">*</span> </label>
+                                            <input pInputText formControlName="benName" id="benName" type="text" />
+                                            <small *ngIf="isInvalidAndTouched('benName')" class="p-error">Religion is Required.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field flex-1">
+                                    <div class="flex-column flex gap-2">
+                                        <label>With Effective Date <span class="text-red-700">*</span></label>
+                                        <p-calendar formControlName="selectedWED" dateFormat="dd.mm.yy" placeholder="" [showIcon]="true"></p-calendar>
+                                        <small *ngIf="isInvalidAndTouched('selectedWED')" class="p-error">Date of Birth is required. </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-content-center gap-2 w-full">
+                                <div class="field flex-1">
+                                    <div class="field flex-1">
+                                        <div class="flex-column flex gap-2">
+                                            <label>Remarks</label>
+                                            <input pInputText formControlName="remarks" id="remarks" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </p-accordionTab>
+    </p-accordion>
+</div>
+<div class="flex flex-wrap gap-2 align-items-center justify-content-center">
+    <button pButton pRipple label="Back" onclick="history.back()"></button>
 </div>

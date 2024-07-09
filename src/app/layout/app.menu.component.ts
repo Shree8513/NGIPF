@@ -5,107 +5,202 @@ import { MenuItem } from 'primeng/api';
 
 @Component({
     selector: 'app-menu',
-    templateUrl: './app.menu.component.html'
+    templateUrl: './app.menu.component.html',
 })
 export class AppMenuComponent implements OnInit {
-
     model: any[] = [];
     panelMenuItems: MenuItem[] = [];
 
-    constructor(public layoutService: LayoutService) { }
+    constructor(public layoutService: LayoutService) {}
 
     ngOnInit() {
-        this.model = [
-            {
-                label: 'Home',
-                items: [
-                    { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }
-                ]
-            },
-            // {
-            //     label: 'Bill',
-            //     items: [
-            //         { label: 'Button', icon: 'pi pi-fw pi-box', routerLink: ['/uikit/button'] },
-            //         { label: 'Beneficiary Master', icon: 'pi pi-plus', routerLink: ['beneficiary-master'] },
-            //         { label: 'Beneficiary Insert', icon: 'pi pi-plus', routerLink: ['beneficiary-insert'] },
-            //         { label: 'Generate Reference', icon: 'pi pi-plus', routerLink: ['generate-reference'] },
-            //         { label: 'Approve Reference', icon: 'pi pi-plus', routerLink: ['approve-reference'] },
-            //         { label: 'Generate Advice', icon: 'pi pi-plus', routerLink: ['generate-advice'] },
-            //         // { label: 'Submitted Bills', icon: 'pi pi-fw pi-box', routerLink: ['/uikit/button'] },
-            //         // { label: 'Saved Bills', icon: 'pi pi-fw pi-box', routerLink: ['saved-bill'] },
-            //         // { label: 'Drafted Bills', icon: 'pi pi-fw pi-box', routerLink: ['/uikit/button'] },
-            //         //{ label: 'Consumer Master', icon: 'pi pi-fw pi-box', routerLink: ['consumer_master'] },
-            //     ]
-            // },
-        ];
         this.panelMenuItems = [
             {
                 label: 'Home',
-                items: [
-                    { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
-                    {label: 'Button', icon: 'pi pi-fw pi-box', routerLink: ['/uikit/button']}
-                ]
+                items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }],
             },
-           
-            // {
-            //     label: 'Beneficiary Master',
-            //     items: [
-            //         {
-            //             label: 'Insert',
-            //             icon: 'pi pi-plus-circle',
-            //             routerLink: ['beneficiary-insert'],
 
-            //         },
-            //         {
-            //             label: 'Import',
-            //             icon: 'pi pi-file-import',
-            //             routerLink: ['beneficiary-import'],
+            {
+                label: 'Employee Details',
+                items: [
+                    {
+                        label: 'Entry New Employee',
+                        icon: 'pi pi-plus-circle',
+                        routerLink: ['employeeDetails/viewEmployee/entryEmployee'],
+                    },
+                    {
+                        label: 'View & Modify',
+                        icon: 'pi pi-search-plus',
+                        routerLink: ['employeeDetails/viewEmployee/searchEmployee'],
+                    },
+                ],
+            },
+            {
+                label: 'StakeHolder Mapping',
+                items: [
+                    {
+                        label: 'StakeHolder Mapping',
+                        icon: 'pi pi-table',
+                        routerLink: ['stakeHolder'],
+                    },
+                ],
+            },
+            {
+                label: 'Interest Year Capture',
+                items: [
+                    {
+                        label: 'Interest Year Capture',
+                        icon: 'pi pi-table',
+                        routerLink: ['Interest-year-capture/capture-pf-interest'],
+                    },
+                ],
+            },
+            {
+                label: 'Report',
+                items: [
+                    {
+                        label: 'Report',
+                        icon: 'pi pi-table',
+                        routerLink: [],
+                    },
+                ],
+            },
+            {
+                label: 'Opening Balance Capture & PF Register Submission',
+                items: [
+                    {
+                        label: 'View',
+                        icon: 'pi pi-table',
+                        routerLink: ['opening-balance-capture/view'],
+                    },
+                    {
+                        label: 'Permission of Initiation',
+                        icon: 'pi pi-table',
+                        routerLink: ['opening-balance-capture/permission_of_initiation'],
+                    },
+                    {
+                        label: 'Pending Request List of Other User',
+                        icon: 'pi pi-table',
+                        routerLink: ['opening-balance-capture/pending_req_list_of_other_user'],
+                    },
+                    {
+                        label: 'Operator List Having -Ve Balance ByPass',
+                        icon: 'pi pi-table',
+                        routerLink: ['opening-balance-capture/operator_list_having-ve_balance_bypassed'],
+                    },
+                ],
+            },
+            {
+                label: 'Interest Rate Master',
+                items: [
+                    {
+                        label: 'Add New',
+                        icon: 'pi pi-plus-circle',
+                        routerLink: ['interstRateMaster/addInterestRate'],
+                    },
+                ],
+            },
+            {
+                label: 'Inbox',
+                items: [
+                    {
+                        label: 'Inbox',
+                        icon: 'pi pi-table',
+                        routerLink: ['Inbox'],
+                    },
+                ],
+            },
+            {
+                label: 'Tagging of Recipt & Payment',
+                items: [
+                    {
+                        label: 'Tagging of Recipt & Payment',
+                        icon: 'pi pi-table',
+                        routerLink: ['taggingReceiptPayment'],
+                    },
+                ],
+            },
+            {
+                label: 'Employee PF Balance Transfer',
+                items: [
+                    {
+                        label: 'History',
+                        icon: 'pi pi-history',
+                        routerLink: ['employee-pf-balance-transfer/transfer-history'],
+                    },
+                ],
+            },
+            {
+                label: 'Advance',
+                items: [
+                    {
+                        label: 'Master Maintance',
+                        icon: 'pi pi-wrench',
+                        routerLink: ['advance/viewAdvance/masterMaintanace'],
 
-            //         },
-            //         {
-            //             label: 'Search & Approve',
-            //             icon: 'pi pi-search-plus',
-            //             routerLink: ['beneficiary-master'],
-            //         },
-
-            //     ]
-            // },
-            // {
-            //     label: 'Reference Generation',
-            //     items: [
-            //         {
-            //             label: 'Create',
-            //             icon: 'pi pi-plus-circle',
-            //             routerLink: ['generate-reference']
-            //         },
-            //         {
-            //             label: 'Search & Approve',
-            //             icon: 'pi pi-search-plus',
-            //             routerLink: ['approve-reference']
-            //         }
-    
-            //     ]
-            // },
-            // { label: 'Advice Generation', items: 
-            //     [
-            //     {
-            //         label: 'Create',
-            //         icon: 'pi pi-plus-circle',
-            //         routerLink: ['generate-advice']
-            //     },
-            //     {
-            //         label: 'Search',
-            //         icon: 'pi pi-search',
-            //         routerLink: ['approve-reference']
-            //     }
-
-            // ]
-                
-        
-            // }
+                    },
+                    {
+                        label: 'DPPG Advance Search',
+                        icon: 'pi pi-search-plus',
+                        routerLink: ['advance/viewAdvance/dppgAdvanceSearch'],
+                    },
+                ],
+            },
+            {
+                label: 'WorkFlow',
+                items: [
+                    {
+                        label: 'WorkFlow',
+                        icon: 'pi pi-chart-line',
+                        routerLink: ['workflow-management'],
+                    },
+                ],
+            },
+            {
+                label: 'Interest Credit Bill/Statement',
+                items: [
+                    {
+                        label: 'Initiate',
+                        icon: 'pi pi-plus-circle',
+                        routerLink: ['Interest-credit-bill-statement/initiate_pf_interest_calculation'],
+                    },
+                    {
+                        label: 'Interest Generation master ',
+                        icon: 'pi pi-search-plus',
+                        routerLink: ['Interest-credit-bill-statement/interest-credit-generation-master'],
+                    },
+                    {
+                        label: 'Final Payment',
+                        icon: 'pi pi-search-plus',
+                        routerLink: ['Interest-credit-bill-statement/TR-43-for-final-payment'],
+                    },
+                    {
+                        label: 'Bill/Statement Summary',
+                        icon: 'pi pi-search-plus',
+                        routerLink: ['Interest-credit-bill-statement/interest_credit_bil_summary'],
+                    },
+                    {
+                        label: 'Final Payment Interest Statement',
+                        icon: 'pi pi-search-plus',
+                        routerLink: ['Interest-credit-bill-statement/TR-43-for-final-payment'],
+                    },
+                ],
+            },
+            {
+                label: 'Final Payment',
+                items: [
+                    {
+                        label: 'Final Payment Application',
+                        icon: 'pi pi-money-bill',
+                        routerLink: ['Final-payment/final-payment-application'],
+                    },
+                    {
+                        label: 'Final Payment Eligibility Master',
+                        icon: 'pi pi-users',
+                        routerLink: ['Final-payment/final-payment-eligibility-master'],
+                    },
+                ],
+            },
         ];
-
     }
-
-    
 }
