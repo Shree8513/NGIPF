@@ -10,7 +10,7 @@
                 <div class="flex justify-content-center gap-2 w-full">
                   <div class="field flex-1">
                     <div class="flex-column flex gap-2">
-                      <label>Treasury</label>
+                      <label>Treasury<span>*</span></label>
                       <p-dropdown [options]="dropdownItemTreasuryname"  formControlName="Treasury" optionLabel="name"></p-dropdown>
 
                       <small *ngIf="isInvalidAndTouched('Treasury')" class="p-error">
