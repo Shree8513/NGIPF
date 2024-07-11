@@ -11,7 +11,7 @@
                     <div class="field flex-1">
                         <div class="flex-column flex gap-2">
                             <label>Treasury<span>*</span></label>
-                            <p-dropdown [options]="dropdownItemTreasuryname" formControlName="Treasury" optionLabel="trName"></p-dropdown>
+                            <p-dropdown [options]="dropdownItemTreasuryname" formControlName="Treasury" optionLabel="trName" placeholder="select Treasury name"></p-dropdown>
 
                             <small *ngIf="isInvalidAndTouched('Treasury')" class="p-error"> Treasury is required. </small>
                         </div>
@@ -19,7 +19,7 @@
                     <div class="field flex-1">
                         <div class="flex-column flex gap-2">
                             <label>Sanction Admin</label>
-                            <input pInputText formControlName="SanctionAdmin" id="sanction_admin" type="text" />
+                            <p-dropdown [options]="dropdownItemSanctionAdmin" formControlName="SanctionAdmin" optionLabel="sanctionName" placeholder="select sanction admin"></p-dropdown>
                             <small *ngIf="isInvalidAndTouched('SanctionAdmin')" class="p-error"> Sanction Admin is required. </small>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                     <div class="field flex-1">
                         <div class="flex-column flex gap-2">
                             <label>PFD Admin</label>
-                            <input pInputText formControlName="PFDAdmin" id="pfd_admin" type="text" />
+                            <p-dropdown [options]="dropdownItemPfdAdmin" formControlName="PFDAdmin" optionLabel="pfdName" placeholder="select PFD admin"></p-dropdown>
                             <small *ngIf="isInvalidAndTouched('PFDAdmin')" class="p-error"> PFD Admin is required. </small>
                         </div>
                     </div>

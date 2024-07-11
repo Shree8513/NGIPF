@@ -20,4 +20,20 @@ export class EmployeeDetailsService {
             })
         );
     }
+
+    getPfdAdmin(): Observable<IapiResponce> {
+        return this.http.get<IapiResponce>(this.BaseURL + 'api/Pfdadmin/GetAllPFDAdmin').pipe(
+            catchError((error) => {
+                throw this.toastService.showError(error.Message);
+            })
+        );
+    }
+
+    getSanctionAdmin(): Observable<IapiResponce> {
+        return this.http.get<IapiResponce>(this.BaseURL + 'api/Sanction/GetAllSanction').pipe(
+            catchError((error) => {
+                throw this.toastService.showError(error.Message);
+            })
+        );
+    }
 }

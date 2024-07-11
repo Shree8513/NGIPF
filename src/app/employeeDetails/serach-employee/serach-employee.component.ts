@@ -13,6 +13,16 @@ interface Treasury {
   trName: string,
   trCode: string
 }
+interface PFDAdmin {
+  pfdName: string,
+  pfdCode: number,
+}
+
+interface SanctionAdmin {
+  sanctionName: string,
+  sanctionCode: number,
+}
+
 @Component({
   selector: 'app-serach-employee',
   templateUrl: './serach-employee.component.html',
@@ -24,6 +34,9 @@ export class SerachEmployeeComponent implements OnInit {
   dropdownItemSalaryType: Salary[]
   searchEmployeeForm!: FormGroup;
   dropdownItemTreasuryname: Treasury[] = []
+  dropdownItemPfdAdmin: PFDAdmin[] = []
+  dropdownItemSanctionAdmin: SanctionAdmin[] = []
+
   constructor(private fb: FormBuilder, private toastService: ToastService, private EmployeeDetailsService: EmployeeDetailsService) {
     this.dropdownItemSalaryType = [
       { name: 'HRMS', code: 'hrms' },
@@ -33,7 +46,9 @@ export class SerachEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    this.getTresury()
+    this.getTresury();
+    this.getPFDAdmin();
+    this.getSanctionAdmin()
   }
 
   initializeForm(): void {
@@ -64,6 +79,37 @@ export class SerachEmployeeComponent implements OnInit {
         })
         this.dropdownItemTreasuryname = Response.result
         console.log(this.dropdownItemTreasuryname)
+        // Response.result.map((item:any)=>{
+        //   item.Name=this.dropdownItemTreasuryname[{item.trName,item.trCode}];
+        // })
+      }
+    })
+  }
+
+
+  getPFDAdmin() {
+    this.EmployeeDetailsService.getPfdAdmin().subscribe((Response) => {
+      if (Response.apiResponseStatus == 1 || Response.apiResponseStatus == 3) {
+        Response.result.map((item, index) => {
+          item.pfdName = item.pfdName + " (" + item.pfdCode + ")"
+        })
+        this.dropdownItemPfdAdmin = Response.result
+        console.log(this.dropdownItemPfdAdmin)
+        // Response.result.map((item:any)=>{
+        //   item.Name=this.dropdownItemTreasuryname[{item.trName,item.trCode}];
+        // })
+      }
+    })
+  }
+
+  getSanctionAdmin() {
+    this.EmployeeDetailsService.getSanctionAdmin().subscribe((Response) => {
+      if (Response.apiResponseStatus == 1 || Response.apiResponseStatus == 3) {
+        Response.result.map((item, index) => {
+          item.sanctionName = item.sanctionName + " (" + item.sanctionCode + ")"
+        })
+        this.dropdownItemSanctionAdmin = Response.result
+        console.log(this.dropdownItemSanctionAdmin)
         // Response.result.map((item:any)=>{
         //   item.Name=this.dropdownItemTreasuryname[{item.trName,item.trCode}];
         // })
