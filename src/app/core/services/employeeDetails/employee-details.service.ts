@@ -36,4 +36,13 @@ export class EmployeeDetailsService {
             })
         );
     }
+
+    viewEmployee(trCode:string,pfdCode:number,sanctionCode:number):Observable<IapiResponce>{
+        return this.http.get<IapiResponce>(this.BaseURL+'api/Reference/UnApprovedReferencesByRefType?ref_type='+trCode+pfdCode+sanctionCode).pipe(
+            catchError((error) => {
+              throw this.toastService.showError(error.message);
+            })
+          );
+
+    }
 }
