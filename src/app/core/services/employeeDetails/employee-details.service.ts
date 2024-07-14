@@ -38,7 +38,7 @@ export class EmployeeDetailsService {
     }
 
     viewEmployee(trCode:string,pfdCode:number,sanctionCode:number):Observable<IapiResponce>{
-        return this.http.get<IapiResponce>(this.BaseURL+'api/Reference/UnApprovedReferencesByRefType?ref_type='+trCode+pfdCode+sanctionCode).pipe(
+        return this.http.get<IapiResponce>(this.BaseURL+'api/v1/ViewEmp/GetEmpView?Treasury='+trCode+'&PFD_Admin='+pfdCode+'&Sanction_Admin='+sanctionCode).pipe(
             catchError((error) => {
               throw this.toastService.showError(error.message);
             })

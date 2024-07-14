@@ -79,7 +79,7 @@
 <div class="grid">
     <div class="col-12">
         <div class="card">
-            <p-table [rows]="12" [rowHover]="true" styleClass="p-datatable-gridlines" [paginator]="true" responsiveLayout="scroll">
+            <p-table [value]="searchEmployee" [rows]="12" [rowHover]="true" styleClass="p-datatable-gridlines" [paginator]="true" responsiveLayout="scroll">
                 <ng-template pTemplate="caption">
                     <div class="flex justify-content-between flex-column sm:flex-row">
                         <button pButton label="Clear" class="p-button-outlined mb-2" icon="pi pi-filter-slash"></button>
@@ -99,14 +99,21 @@
                         <th style="min-width: 6rem" pFrozenColumn alignFrozen="right">Action</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-reference>
+                <ng-template pTemplate="body" let-searchEmployee>
                     <tr class="p-selectable-row">
                         <!-- <td style="max-width: 4rem" pFrozenColumn><p-tableCheckbox [value]="reference"></p-tableCheckbox></td> -->
-                        <td style="min-width: 12rem"></td>
-                        <td style="min-width: 26rem"></td>
-                        <td style="min-width: 12rem"></td>
-                        <td style="min-width: 12rem"></td>
-                        <td style="min-width: 6rem" pFrozenColumn alignFrozen="right"><button pButton type="button" class="p-button-danger" icon="pi pi-trash"></button></td>
+                        <td style="min-width: 12rem">{{ searchEmployee.pfAccount }}</td>
+                        <td style="min-width: 26rem">{{ searchEmployee.empName }}</td>
+                        <td style="min-width: 12rem">{{ searchEmployee.DOJ }}</td>
+                        <td style="min-width: 12rem">{{ searchEmployee.status }}</td>
+                        <td style="min-width: 6rem" pFrozenColumn alignFrozen="right">
+                            <button
+                                pButton
+                                type="button"
+                                class="p-button-help"
+                                icon="pi pi-search-plus" (click)="editEmployee()"
+                            ></button>
+                        </td>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="emptymessage">
