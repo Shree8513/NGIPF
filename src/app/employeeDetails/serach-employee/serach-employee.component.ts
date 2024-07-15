@@ -38,7 +38,6 @@ export class SerachEmployeeComponent implements OnInit {
     dropdownItemTreasuryname: Treasury[] = [];
     dropdownItemPfdAdmin: PFDAdmin[] = [];
     dropdownItemSanctionAdmin: SanctionAdmin[] = [];
-    
 
     constructor(private fb: FormBuilder, private toastService: ToastService, private EmployeeDetailsService: EmployeeDetailsService,private router: Router) {
         this.dropdownItemSalaryType = [
@@ -116,12 +115,11 @@ export class SerachEmployeeComponent implements OnInit {
         this.EmployeeDetailsService.viewEmployee(trcode, pfdCode, sanctionCode).subscribe((response) => {
             //console.log(response);
             if (response.apiResponseStatus == 1 || response.apiResponseStatus == 3) {
-                console.log(response);
                 response.result.map((item: any) => {
-                    // item.pfAccount = item.pfAccount;
+                    item.pfAccount = item.pfAccount;
                     item.empName = item.empName + '(' + item.empId + ')';
                     item.DOJ = convertDate(item.dateOfJoining);
-                    // item.status = item.status;
+                    item.status = item.status;
                 });
                 this.searchEmployee = response.result;
             } else {
@@ -130,20 +128,6 @@ export class SerachEmployeeComponent implements OnInit {
         });
     }
     onSearchViewEmployee() {
-        if (!this.searchEmployeeForm.valid) {
-            const formValues = this.searchEmployeeForm.value;
-            const trcode = formValues.Treasury.trCode; // Assuming Treasury is an object with a trCode property
-            const pfdCode = formValues.PFDAdmin.pfdCode; // Assuming PFDAdmin is an object with a pfdCode property
-            const sanctionCode = formValues.SanctionAdmin.sanctionCode; // Assuming SanctionAdmin is an object with a sanctionCode property
-    
-            this.viewEmployee(trcode, pfdCode, sanctionCode);
-        } else {
-            this.toastService.showAlert('Please fill out the form correctly.', 2);
-        }
+        console.log(this.searchEmployeeForm.value);
     }
-    editEmployee()
-    {
-        this.router.navigate(['employeeDetails/viewEmployee/entryEmployee']);
-    }
-    
 }
