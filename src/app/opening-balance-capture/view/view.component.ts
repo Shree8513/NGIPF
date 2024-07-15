@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ViewComponent implements OnInit {
 
   viewForm!: FormGroup;
+  value: boolean;
+  showTable: boolean = false; 
 
   constructor(private fb: FormBuilder) { }
 
@@ -30,6 +32,17 @@ export class ViewComponent implements OnInit {
   isInvalidAndTouched(controlName: string): boolean {
     const control = this.viewForm.get(controlName);
     return control && control.invalid && (control.dirty || control.touched);
+  }
+  onSearch(){
+    if (this.viewForm.valid) {
+      this.showTable = true;  // Show the table when the form is valid and search button is clicked
+    } else {
+      this.showTable = false; // Hide the table if form is invalid
+      Object.keys(this.viewForm.controls).forEach(field => {
+        const control = this.viewForm.get(field);
+        control?.markAsTouched({ onlySelf: true });
+      });
+    }
   }
 }
 

@@ -12,6 +12,7 @@ export class PermissionOfInitiationComponent implements OnInit {
   showTreasury: boolean = true;
   showHeadOfAccount: boolean = true;
   showTable: boolean = false;  // Flag to control table visibility
+  value: boolean;
 
   constructor(private fb: FormBuilder) { }
 
