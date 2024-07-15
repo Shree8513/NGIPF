@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { EmployeeDetailsService } from './../../core/services/employeeDetails/employee-details.service';
-import { IapiResponce } from './../../core/models/iapi-responce';
-import { APIResponseStatus } from 'src/app/core/enum/common_enum';
 import { convertDate } from 'src/app/utils/dateConversion';
 import { Router } from '@angular/router';
 
@@ -141,8 +139,7 @@ export class SerachEmployeeComponent implements OnInit {
             this.toastService.showAlert('Please fill out the form correctly.', 2);
         }
     }
-    editEmployee()
-    {
+    editEmployee(){
         this.router.navigate(['employeeDetails/viewEmployee/entryEmployee']);
     }
     
