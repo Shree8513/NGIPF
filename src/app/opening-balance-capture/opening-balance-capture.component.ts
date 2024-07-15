@@ -26,4 +26,7 @@ PendingClick(){
 operatorClick(){
   this.router.navigate(['opening-balance-capture/operator_list_having-ve_balance_bypassed']);
 }
+EmployeeClick(){
+  this.router.navigate(['opening-balance-capture/employee-wise-pf-register-with-interest']);
+}
 }

@@ -130,4 +130,7 @@ export class SerachEmployeeComponent implements OnInit {
     onSearchViewEmployee() {
         console.log(this.searchEmployeeForm.value);
     }
+    editEmployee(){
+        this.router.navigate(['employeeDetails/viewEmployee/entryEmployee']);
+    }
 }
