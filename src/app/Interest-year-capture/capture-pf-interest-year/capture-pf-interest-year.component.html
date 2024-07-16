@@ -102,21 +102,20 @@
                       <th style="min-width: 6rem" pFrozenColumn alignFrozen="right">Action</th>
                   </tr>
               </ng-template>
-              <ng-template pTemplate="body" let-searchEmployee>
+              <ng-template pTemplate="body" let-capturePfInterestYear>
                   <tr class="p-selectable-row">
-                      <!-- <td style="max-width: 4rem" pFrozenColumn><p-tableCheckbox [value]="reference"></p-tableCheckbox></td> -->
-                      <!-- <td style="min-width: 12rem">{{ PFRegister.pfAccount }}</td>
-                      <td style="min-width: 26rem">{{ PFRegister.empName }}</td>
-                      <td style="min-width: 12rem">{{ PFRegister.DOJ }}</td>
-                      <td style="min-width: 12rem">{{ PFRegister.status }}</td>
+                        
+                      <td style="min-width: 12rem">{{ capturePfInterestYear.creditHOACode }}</td>
+                      <td style="min-width: 26rem">{{ capturePfInterestYear.treasuryName }}</td>
+                      <td style="min-width: 12rem">{{ capturePfInterestYear.operatorDescription }}</td>
+                      <td style="min-width: 12rem">{{ capturePfInterestYear.intTransfer }}</td>
+                      <td style="min-width: 12rem">{{ capturePfInterestYear.status }}</td>
+                      <td style="min-width: 12rem">{{ capturePfInterestYear.interestYearUpto }}</td>
+                     
                       <td style="min-width: 6rem" pFrozenColumn alignFrozen="right">
-                          <button
-                              pButton
-                              type="button"
-                              class="p-button-help"
-                              icon="pi pi-search-plus" 
-                          ></button>
-                      </td> -->
+                        <button pButton type="button" class="p-button-raised p-button-rounded" icon=" pi pi-external-link" ></button>
+                        
+                      </td> 
                   </tr>
               </ng-template>
               <ng-template pTemplate="emptymessage">
