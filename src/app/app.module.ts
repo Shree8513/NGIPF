@@ -54,7 +54,7 @@ import { CardModule } from 'primeng/card';
 import { ViewEmployeeComponent } from './employeeDetails/view-employee/view-employee.component';
 import { EntryEmployeeComponent } from './employeeDetails/entry-employee/entry-employee.component';
 import { SerachEmployeeComponent } from './employeeDetails/serach-employee/serach-employee.component';
-import { StakeHolderComponent } from './stake-holder/stake-holder.component';
+import { StakeHolderComponent } from './StakeHolder/stake-holder/stake-holder.component';
 import { InterestRateMasterComponent } from './interestRateMaster/interest-rate-master/interest-rate-master.component';
 import { AddInterestRateComponent } from './interestRateMaster/add-interest-rate/add-interest-rate.component';
 import { DelegatedRoleComponent } from './delegated-role/delegated-role.component';
@@ -85,12 +85,13 @@ import { PurposeMasterComponent } from './advance/purpose-master/purpose-master.
 import { PurposeTAggingMasterComponent } from './advance/purpose-tagging-master/purpose-tagging-master.component';
 import { EmployeeWisePfRegisterWithInterestComponent } from './opening-balance-capture/employee-wise-pf-register-with-interest/employee-wise-pf-register-with-interest.component';
 import { DialogModule } from 'primeng/dialog';
- 
+import { EditStakeHolderComponent } from './StakeHolder/edit-stake-holder/edit-stake-holder.component';
+
 @NgModule({
-    declarations: [AppComponent, NotfoundComponent, ServerDownComponent, LoginComponent, NotFoundComponent, StaticLoginComponent, appDeclaration, TestComponent, ViewEmployeeComponent, EntryEmployeeComponent, SerachEmployeeComponent, StakeHolderComponent, InterestRateMasterComponent, AddInterestRateComponent, DelegatedRoleComponent, TaggingReceiptPaymentComponent, EmployeePFBalanceTransferComponent, TransferHistoryComponent, CapturePfInterestYearComponent, InboxComponent, WorkflowManagementComponent, OpeningBalanceCaptureComponent, FinalPaymentComponent, FinalPaymentApplicationComponent, FinalPaymentEligibilityMasterComponent, InterestCreditBillStatementComponent, InitiatePfInterestCalculationComponent, InterestCreditBillSummaryComponent, TRForFinalPaymentComponent, InterestCreditGenerationMasterComponent, ViewComponent, PermissionOfInitiationComponent, PendingRequestListOfOtherUserComponent, OperatorListHavingVeBalanceBypassedComponent, ViewAdvanceComponent, DppgAdvanceSearchComponent, MasterMaintanceComponent, EligibilityMasterComponent, PurposeMasterComponent, PurposeTAggingMasterComponent, EmployeeWisePfRegisterWithInterestComponent,  ],
-    imports: [PanelModule, CommonModule, AppRoutingModule, AppLayoutModule,DialogModule,ToastModule, NgxPermissionsModule.forRoot(), NgxSpinnerModule, ButtonModule, RadioButtonModule, DataViewModule, FormsModule, InputTextModule, DropdownModule, SelectButtonModule, FormsModule, ReactiveFormsModule, InputMaskModule, MenuModule, StepsModule, AutoCompleteModule, TooltipModule, CalendarModule, InputNumberModule, DividerModule, InputTextareaModule, TableModule, BadgeModule, MhPrimeDynamicTableModule, DynamicTableModule, CheckboxModule, ToggleButtonModule, CardModule],
+    declarations: [AppComponent, NotfoundComponent, ServerDownComponent, LoginComponent, NotFoundComponent, StaticLoginComponent, appDeclaration, TestComponent, ViewEmployeeComponent, EntryEmployeeComponent, SerachEmployeeComponent, StakeHolderComponent, InterestRateMasterComponent, AddInterestRateComponent, DelegatedRoleComponent, TaggingReceiptPaymentComponent, EmployeePFBalanceTransferComponent, TransferHistoryComponent, CapturePfInterestYearComponent, InboxComponent, WorkflowManagementComponent, OpeningBalanceCaptureComponent, FinalPaymentComponent, FinalPaymentApplicationComponent, FinalPaymentEligibilityMasterComponent, InterestCreditBillStatementComponent, InitiatePfInterestCalculationComponent, InterestCreditBillSummaryComponent, TRForFinalPaymentComponent, InterestCreditGenerationMasterComponent, ViewComponent, PermissionOfInitiationComponent, PendingRequestListOfOtherUserComponent, OperatorListHavingVeBalanceBypassedComponent, ViewAdvanceComponent, DppgAdvanceSearchComponent, MasterMaintanceComponent, EligibilityMasterComponent, PurposeMasterComponent, PurposeTAggingMasterComponent, EmployeeWisePfRegisterWithInterestComponent, EditStakeHolderComponent],
+    imports: [PanelModule, CommonModule, AppRoutingModule, AppLayoutModule, DialogModule, ToastModule, NgxPermissionsModule.forRoot(), NgxSpinnerModule, ButtonModule, RadioButtonModule, DataViewModule, FormsModule, InputTextModule, DropdownModule, SelectButtonModule, FormsModule, ReactiveFormsModule, InputMaskModule, MenuModule, StepsModule, AutoCompleteModule, TooltipModule, CalendarModule, InputNumberModule, DividerModule, InputTextareaModule, TableModule, BadgeModule, MhPrimeDynamicTableModule, DynamicTableModule, CheckboxModule, ToggleButtonModule, CardModule],
     providers: [
-        { provide: LocationStrategy, useClass: HashLocationStrategy, },
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
         {
             provide: APP_INITIALIZER,
@@ -121,7 +122,7 @@ import { DialogModule } from 'primeng/dialog';
         StepsModule,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    
+
     bootstrap: [AppComponent],
 })
 export class AppModule {}

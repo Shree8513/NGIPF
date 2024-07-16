@@ -19,7 +19,7 @@
           <ng-template pTemplate="header">
             <tr>
               <th style="min-width: 12rem" class="bg-blue-500 text-white">Head of Account</th>
-              <th style="min-width: 26rem" class="bg-blue-500 text-white">Sanction Admin</th>
+              <th style="min-width: 26rem" class="bg-blue-500 text-white">Sanction Admin Count</th>
               <th style="min-width: 12rem" class="bg-blue-500 text-white">Sanction Admin Nature</th>
               <th style="min-width: 12rem" class="bg-blue-500 text-white">Recomm Authority Required</th>
               <th style="min-width: 12rem" class="bg-blue-500 text-white">Recomm Authority Count</th>
@@ -31,12 +31,12 @@
           <ng-template pTemplate="body" let-stakeHolder>
             <tr class="p-selectable-row">
               <td style="min-width: 12rem">{{ stakeHolder.intHoaCode }}</td>
-              <td style="min-width: 12rem"></td>
+              <td style="min-width: 12rem">{{ stakeHolder.sanctionCount }}</td>
               <td style="min-width: 12rem">{{ stakeHolder.sanctionNature }}</td>
               <td style="min-width: 12rem">{{ stakeHolder.recommendingAuthRequired }}</td>
               <td style="min-width: 12rem">{{ stakeHolder.recommendingCount }}</td>
               <td style="min-width: 12rem">{{ stakeHolder.recommendingNature }}</td>
-              <td style="min-width: 12rem">{{ stakeHolder.sanctionCount }}</td>
+              <td style="min-width: 12rem"></td>
               <td style="min-width: 12rem" class="flex gap-2">
                 <button pButton type="button" class="p-button-help" icon="pi pi-pencil" (click)="editStakeHolder()"></button>
                 <button pButton type="button" class="p-button-help" icon="pi pi-plus" (click)="addStakeHolder()"></button>
