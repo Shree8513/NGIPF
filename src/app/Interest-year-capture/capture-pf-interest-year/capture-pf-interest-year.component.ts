@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeeDetailsService } from './../../core/services/employeeDetails/employee-details.service';
 import { convertDate } from 'src/app/utils/dateConversion';
 import { ToastService } from 'src/app/core/services/toast.service';
-import {CheckboxModule} from 'primeng/checkbox';
+
 
 
 
@@ -36,7 +36,8 @@ export class CapturePfInterestYearComponent implements OnInit {
   capturePfInterestYear: any[] = [];
   dropdownItemTreasuryname: Treasury[] = [];
   dropdownItemHeadOfAccount: HOA[] = [];
-  
+  displayDetails: boolean = false;
+  selectedCapturePfInterestYear: any;
 
   constructor(
     private fb: FormBuilder,
@@ -156,5 +157,9 @@ export class CapturePfInterestYearComponent implements OnInit {
           this.toastService.showAlert(response.message, response.apiResponseStatus);
       }
   });
+  }
+  showDetailsDialog(capturePfInterestYear: any) {
+    this.selectedCapturePfInterestYear = capturePfInterestYear;
+    this.displayDetails = true;
   }
 }
