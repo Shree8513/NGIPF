@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmployeeDetailsService } from './../../core/services/employeeDetails/employee-details.service';
+
 import { convertDate } from 'src/app/utils/dateConversion';
 import { ToastService } from 'src/app/core/services/toast.service';
+import { CapturePFInterestYearService } from 'src/app/core/services/CapturePFInterestYearDetails/capture-pfinterest-year.service';
 
 
 
@@ -12,8 +13,8 @@ interface Status {
   code: string;
 }
 interface HOA {
-  HoaName: string;
-  HoaCode: string;
+  hoaName: string;
+  hoaCode: string;
 }
 interface Treasury {
   trName: string;
@@ -37,14 +38,14 @@ export class CapturePfInterestYearComponent implements OnInit {
   dropdownItemTreasuryname: Treasury[] = [];
   dropdownItemHeadOfAccount: HOA[] = [];
   displayDetails: boolean = false;
+  displayApprovalDialog: boolean = false;
   selectedCapturePfInterestYear: any;
+  isVerifiedAndChecked: boolean = false;
+  selectedCheckbox: number | null = null;
 
   constructor(
     private fb: FormBuilder,
-    private toastService: ToastService,
-    
-    private employeeDetailsService: EmployeeDetailsService
-  ) {
+    private toastService: ToastService,private CapturePFInterestYearService :CapturePFInterestYearService ) {
     this.dropdownItemStatusType = [
       { name: 'Approved', code: 'Approved' },
       { name: 'All', code: 'All' },
@@ -64,9 +65,9 @@ export class CapturePfInterestYearComponent implements OnInit {
 
   initializeForm(): void {
     this.capturePfInterestYearForm = this.fb.group({
-      //DebitHeadOfAccount: ['', Validators.required],
+      DebitHeadOfAccount: ['', Validators.required],
       HeadOfAccount: [''],
-      //OperatorName: ['', Validators.required],
+      OperatorName: ['', Validators.required],
       Search_By: ['', Validators.required],
       Treasury: [''],
       Status: ['', Validators.required],
@@ -120,7 +121,7 @@ export class CapturePfInterestYearComponent implements OnInit {
   }
 
   getTresury() {
-    this.employeeDetailsService.getTresury().subscribe((response) => {
+    this.CapturePFInterestYearService.getTresury().subscribe((response) => {
       console.log({ response });
       if (response.apiResponseStatus == 1 || response.apiResponseStatus == 3) {
         response.result.map((item) => {
@@ -132,11 +133,11 @@ export class CapturePfInterestYearComponent implements OnInit {
   }
 
   getHOA() {
-    this.employeeDetailsService.getHOA().subscribe((response) => {
+    this.CapturePFInterestYearService.getHOA().subscribe((response) => {
       console.log({ response });
       if (response.apiResponseStatus == 1 || response.apiResponseStatus == 3) {
         response.result.map((item) => {
-          item.HoaName = item.HoaName + ' (' + item.HoaCode + ')';
+          item.hoaName = item.hoaName + ' (' + item.hoaCode + ')';
         });
         this.dropdownItemHeadOfAccount = response.result;
       }
@@ -144,7 +145,7 @@ export class CapturePfInterestYearComponent implements OnInit {
   }
 
   getCapturePFInterestYear(){
-    this.employeeDetailsService.capturePFInterest().subscribe((response) => {
+    this.CapturePFInterestYearService.capturePFInterest().subscribe((response) => {
       //console.log(response);
       if (response.apiResponseStatus == 1 || response.apiResponseStatus == 3) {
           response.result.map((item: any) => {
@@ -162,4 +163,34 @@ export class CapturePfInterestYearComponent implements OnInit {
     this.selectedCapturePfInterestYear = capturePfInterestYear;
     this.displayDetails = true;
   }
+  showApprovalDialog() {
+    this.displayApprovalDialog = true;
+  }
+  isApproveDisabled(): boolean {
+    return this.selectedCheckbox === null;
+  }
+
+
+  confirmApproval() {
+    if (this.isVerifiedAndChecked) {
+      this.toastService.showAlert('Approval confirmed!', 1);
+    } else {
+      this.toastService.showAlert('Please verify and check the details.', 0);
+    }
+    this.displayApprovalDialog = false;
+  }
+
+  approveRow(rowData: any) {
+    this.selectedCapturePfInterestYear = rowData;
+    this.isVerifiedAndChecked = false; // Reset checkbox state
+    this.displayApprovalDialog = true;
+  }
+ 
+    onCheckboxChange(index: number): void {
+        if (this.selectedCheckbox === index) {
+            this.selectedCheckbox = null; // Uncheck if already checked
+        } else {
+            this.selectedCheckbox = index; // Check the selected checkbox
+        }
+    }
 }
