@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { convertDate } from 'src/app/utils/dateConversion';
 import { ToastService } from 'src/app/core/services/toast.service';
-import { CapturePFInterestYearService } from 'src/app/core/services/CapturePfInterestYear/capture-pfinterest-year.service';
+import { CapturePFInterestYearService } from 'src/app/core/services/CapturePFInterestYearDetails/capture-pfinterest-year.service';
 
 
 
@@ -194,3 +194,4 @@ export class CapturePfInterestYearComponent implements OnInit {
         }
     }
 }
+

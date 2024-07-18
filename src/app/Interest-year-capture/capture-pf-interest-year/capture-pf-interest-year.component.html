@@ -138,7 +138,7 @@
   </div>
 </div>
 
-<p-dialog header="Operator Details"  [style]="{ width: '50vw' }">
+<p-dialog header="Operator Details" [(visible)]="displayDetails" [modal]="true" [style]="{ width: '50vw' }">
   <div class="field">
       <label>Credit HOA Code</label>
       <p>{{ selectedCapturePfInterestYear?.creditHOACode }}</p>
@@ -208,7 +208,7 @@
   </p-footer>
 </p-dialog>
 
-<p-dialog header="Approval Confirmation"  [style]="{ width: '50vw' }">
+<p-dialog header="Approval Confirmation" [(visible)]="displayApprovalDialog" [modal]="true" [style]="{ width: '50vw' }">
   <div class="field">
       <label>Credit HOA Code</label>
       <p>{{ selectedCapturePfInterestYear?.creditHOACode }}</p>
@@ -281,3 +281,13 @@
       <button pButton type="button" label="Confirm" (click)="confirmApproval()" [disabled]="!isVerifiedAndChecked"></button>
   </p-footer>
 </p-dialog>
+
+
+
+
+
+
+
+
+
+
