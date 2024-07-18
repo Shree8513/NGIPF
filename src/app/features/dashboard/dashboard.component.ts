@@ -59,4 +59,7 @@ export class DashboardComponent implements OnInit {
     advanceClick(){
         this.router.navigate(['advance/viewAdvance'])
     }
+    salaryClick(){
+        this.router.navigate(['salary-details'])
+    }
 }
