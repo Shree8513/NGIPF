@@ -50,6 +50,7 @@ import { MasterMaintanceComponent } from './advance/master-maintance/master-main
 import { EligibilityMasterComponent } from './advance/eligibility-master/eligibility-master.component';
 import { PurposeMasterComponent } from './advance/purpose-master/purpose-master.component';
 import { PurposeTAggingMasterComponent } from './advance/purpose-tagging-master/purpose-tagging-master.component';
+import { SalaryDetailsComponent } from './salary-details/salary-details.component';
 
 
 @NgModule({
@@ -103,6 +104,7 @@ import { PurposeTAggingMasterComponent } from './advance/purpose-tagging-master/
                         {path:'advance/viewAdvance/masterMaintanace/eligibilityMaster',component:EligibilityMasterComponent},
                         {path:'advance/viewAdvance/masterMaintanace/purposeMaster',component:PurposeMasterComponent},
                         {path:'advance/viewAdvance/masterMaintanace/purposeTaggingMaster',component:PurposeTAggingMasterComponent},
+                        {path:'salary-details',component:SalaryDetailsComponent},
 
 
                         
