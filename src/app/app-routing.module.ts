@@ -21,7 +21,7 @@ import { BsnlServiceProviderComponent } from './shared/components/bsnl-service-p
 import { ViewEmployeeComponent } from './employeeDetails/view-employee/view-employee.component';
 import { EntryEmployeeComponent } from './employeeDetails/entry-employee/entry-employee.component';
 import { SerachEmployeeComponent } from './employeeDetails/serach-employee/serach-employee.component';
-import { StakeHolderComponent } from './stake-holder/stake-holder.component';
+import { StakeHolderComponent } from './StakeHolder/stake-holder/stake-holder.component';
 import { InterestRateMasterComponent } from './interestRateMaster/interest-rate-master/interest-rate-master.component';
 import { AddInterestRateComponent } from './interestRateMaster/add-interest-rate/add-interest-rate.component';
 import { DelegatedRoleComponent } from './delegated-role/delegated-role.component';
@@ -51,7 +51,7 @@ import { EligibilityMasterComponent } from './advance/eligibility-master/eligibi
 import { PurposeMasterComponent } from './advance/purpose-master/purpose-master.component';
 import { PurposeTAggingMasterComponent } from './advance/purpose-tagging-master/purpose-tagging-master.component';
 import { EmployeeWisePfRegisterWithInterestComponent } from './opening-balance-capture/employee-wise-pf-register-with-interest/employee-wise-pf-register-with-interest.component';
-import { SalaryDetailsComponent } from './salary-details/salary-details.component';
+import { EditStakeHolderComponent } from './StakeHolder/edit-stake-holder/edit-stake-holder.component';import { SalaryDetailsComponent } from './salary-details/salary-details.component';
 
 
 @NgModule({
@@ -77,44 +77,37 @@ import { SalaryDetailsComponent } from './salary-details/salary-details.componen
                         { path: 'employeeDetails/viewEmployee/entryEmployee', component: EntryEmployeeComponent },
                         { path: 'employeeDetails/viewEmployee/searchEmployee', component: SerachEmployeeComponent },
                         { path: 'stakeHolder', component: StakeHolderComponent },
+                        { path: 'stakeHolder/editStakHolder', component: EditStakeHolderComponent },
                         { path: 'interestRateMaster', component: InterestRateMasterComponent },
-                        {path:'interstRateMaster/addInterestRate',component:AddInterestRateComponent},
-                        {path:'delegatedRole',component:DelegatedRoleComponent},
-                        {path:'taggingReceiptPayment',component:TaggingReceiptPaymentComponent},
-                        {path:'Employee-PF-balance-transfer',component:EmployeePFBalanceTransferComponent},
-                        {path:'employee-pf-balance-transfer/transfer-history',component:TransferHistoryComponent},
-                        {path:'Interest-year-capture/capture-pf-interest',component:CapturePfInterestYearComponent},
-                        {path:'Inbox',component:InboxComponent},
-                        {path:'workflow-management',component:WorkflowManagementComponent},
-                        {path:'opening-balance-capture',component:OpeningBalanceCaptureComponent},
-                        {path:'opening-balance-capture/view',component:ViewComponent},
-                        {path:'opening-balance-capture/permission_of_initiation',component:PermissionOfInitiationComponent},
-                        {path:'opening-balance-capture/pending_req_list_of_other_user',component:PendingRequestListOfOtherUserComponent},
-                        {path:'opening-balance-capture/operator_list_having-ve_balance_bypassed',component:OperatorListHavingVeBalanceBypassedComponent},
-                        {path:'opening-balance-capture/employee-wise-pf-register-with-interest',component:EmployeeWisePfRegisterWithInterestComponent},
-                        {path:'Final-payment',component:FinalPaymentComponent},
-                        {path:'Final-payment/final-payment-application',component:FinalPaymentApplicationComponent},
-                        {path:'Final-payment/final-payment-eligibility-master',component:FinalPaymentEligibilityMasterComponent},
-                        {path:'Interest-credit-bill-statement',component:InterestCreditBillStatementComponent},
-                        {path:'Interest-credit-bill-statement/initiate_pf_interest_calculation',component:InitiatePfInterestCalculationComponent},
-                        {path:'Interest-credit-bill-statement/interest_credit_bil_summary',component:InterestCreditBillSummaryComponent},
-                        {path:'Interest-credit-bill-statement/TR-43-for-final-payment',component:TRForFinalPaymentComponent},
-                        {path:'Interest-credit-bill-statement/interest-credit-generation-master',component:InterestCreditGenerationMasterComponent},
-                        {path:'advance/viewAdvance',component:ViewAdvanceComponent},
-                        {path:'advance/viewAdvance/dppgAdvanceSearch',component:DppgAdvanceSearchComponent},
-                        {path:'advance/viewAdvance/masterMaintanace',component:MasterMaintanceComponent},
-                        {path:'advance/viewAdvance/masterMaintanace/eligibilityMaster',component:EligibilityMasterComponent},
-                        {path:'advance/viewAdvance/masterMaintanace/purposeMaster',component:PurposeMasterComponent},
-                        {path:'advance/viewAdvance/masterMaintanace/purposeTaggingMaster',component:PurposeTAggingMasterComponent},
-                        {path:'salary-details',component:SalaryDetailsComponent},
-
-
-                    
-
-                        
-
-
-                        ],
+                        { path: 'interstRateMaster/addInterestRate', component: AddInterestRateComponent },
+                        { path: 'delegatedRole', component: DelegatedRoleComponent },
+                        { path: 'taggingReceiptPayment', component: TaggingReceiptPaymentComponent },
+                        { path: 'Employee-PF-balance-transfer', component: EmployeePFBalanceTransferComponent },
+                        { path: 'employee-pf-balance-transfer/transfer-history', component: TransferHistoryComponent },
+                        { path: 'Interest-year-capture/capture-pf-interest', component: CapturePfInterestYearComponent },
+                        { path: 'Inbox', component: InboxComponent },
+                        { path: 'workflow-management', component: WorkflowManagementComponent },
+                        { path: 'opening-balance-capture', component: OpeningBalanceCaptureComponent },
+                        { path: 'opening-balance-capture/view', component: ViewComponent },
+                        { path: 'opening-balance-capture/permission_of_initiation', component: PermissionOfInitiationComponent },
+                        { path: 'opening-balance-capture/pending_req_list_of_other_user', component: PendingRequestListOfOtherUserComponent },
+                        { path: 'opening-balance-capture/operator_list_having-ve_balance_bypassed', component: OperatorListHavingVeBalanceBypassedComponent },
+                        { path: 'opening-balance-capture/employee-wise-pf-register-with-interest', component: EmployeeWisePfRegisterWithInterestComponent },
+                        { path: 'Final-payment', component: FinalPaymentComponent },
+                        { path: 'Final-payment/final-payment-application', component: FinalPaymentApplicationComponent },
+                        { path: 'Final-payment/final-payment-eligibility-master', component: FinalPaymentEligibilityMasterComponent },
+                        { path: 'Interest-credit-bill-statement', component: InterestCreditBillStatementComponent },
+                        { path: 'Interest-credit-bill-statement/initiate_pf_interest_calculation', component: InitiatePfInterestCalculationComponent },
+                        { path: 'Interest-credit-bill-statement/interest_credit_bil_summary', component: InterestCreditBillSummaryComponent },
+                        { path: 'Interest-credit-bill-statement/TR-43-for-final-payment', component: TRForFinalPaymentComponent },
+                        { path: 'Interest-credit-bill-statement/interest-credit-generation-master', component: InterestCreditGenerationMasterComponent },
+                        { path: 'advance/viewAdvance', component: ViewAdvanceComponent },
+                        { path: 'advance/viewAdvance/dppgAdvanceSearch', component: DppgAdvanceSearchComponent },
+                        { path: 'advance/viewAdvance/masterMaintanace', component: MasterMaintanceComponent },
+                        { path: 'advance/viewAdvance/masterMaintanace/eligibilityMaster', component: EligibilityMasterComponent },
+                        { path: 'advance/viewAdvance/masterMaintanace/purposeMaster', component: PurposeMasterComponent },
+                        { path: 'advance/viewAdvance/masterMaintanace/purposeTaggingMaster', component: PurposeTAggingMasterComponent },
+                    ],
                 },
                 { path: 'static-login', component: StaticLoginComponent },
                 { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then((m) => m.AuthModule) },

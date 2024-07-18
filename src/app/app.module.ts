@@ -54,7 +54,7 @@ import { CardModule } from 'primeng/card';
 import { ViewEmployeeComponent } from './employeeDetails/view-employee/view-employee.component';
 import { EntryEmployeeComponent } from './employeeDetails/entry-employee/entry-employee.component';
 import { SerachEmployeeComponent } from './employeeDetails/serach-employee/serach-employee.component';
-import { StakeHolderComponent } from './stake-holder/stake-holder.component';
+import { StakeHolderComponent } from './StakeHolder/stake-holder/stake-holder.component';
 import { InterestRateMasterComponent } from './interestRateMaster/interest-rate-master/interest-rate-master.component';
 import { AddInterestRateComponent } from './interestRateMaster/add-interest-rate/add-interest-rate.component';
 import { DelegatedRoleComponent } from './delegated-role/delegated-role.component';
@@ -91,7 +91,7 @@ import { SalaryDetailsComponent } from './salary-details/salary-details.componen
     declarations: [AppComponent, NotfoundComponent, ServerDownComponent, LoginComponent, NotFoundComponent, StaticLoginComponent, appDeclaration, TestComponent, ViewEmployeeComponent, EntryEmployeeComponent, SerachEmployeeComponent, StakeHolderComponent, InterestRateMasterComponent, AddInterestRateComponent, DelegatedRoleComponent, TaggingReceiptPaymentComponent, EmployeePFBalanceTransferComponent, TransferHistoryComponent, CapturePfInterestYearComponent, InboxComponent, WorkflowManagementComponent, OpeningBalanceCaptureComponent, FinalPaymentComponent, FinalPaymentApplicationComponent, FinalPaymentEligibilityMasterComponent, InterestCreditBillStatementComponent, InitiatePfInterestCalculationComponent, InterestCreditBillSummaryComponent, TRForFinalPaymentComponent, InterestCreditGenerationMasterComponent, ViewComponent, PermissionOfInitiationComponent, PendingRequestListOfOtherUserComponent, OperatorListHavingVeBalanceBypassedComponent, ViewAdvanceComponent, DppgAdvanceSearchComponent, MasterMaintanceComponent, EligibilityMasterComponent, PurposeMasterComponent, PurposeTAggingMasterComponent, EmployeeWisePfRegisterWithInterestComponent, SalaryDetailsComponent,  ],
     imports: [PanelModule, CommonModule, AppRoutingModule, AppLayoutModule,DialogModule,ToastModule, NgxPermissionsModule.forRoot(), NgxSpinnerModule, ButtonModule, RadioButtonModule, DataViewModule, FormsModule, InputTextModule, DropdownModule, SelectButtonModule, FormsModule, ReactiveFormsModule, InputMaskModule, MenuModule, StepsModule, AutoCompleteModule, TooltipModule, CalendarModule, InputNumberModule, DividerModule, InputTextareaModule, TableModule, BadgeModule, MhPrimeDynamicTableModule, DynamicTableModule, CheckboxModule, ToggleButtonModule, CardModule],
     providers: [
-        { provide: LocationStrategy, useClass: HashLocationStrategy, },
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
         {
             provide: APP_INITIALIZER,
@@ -122,7 +122,7 @@ import { SalaryDetailsComponent } from './salary-details/salary-details.componen
         StepsModule,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    
+
     bootstrap: [AppComponent],
 })
 export class AppModule {}
