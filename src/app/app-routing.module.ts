@@ -51,6 +51,7 @@ import { EligibilityMasterComponent } from './advance/eligibility-master/eligibi
 import { PurposeMasterComponent } from './advance/purpose-master/purpose-master.component';
 import { PurposeTAggingMasterComponent } from './advance/purpose-tagging-master/purpose-tagging-master.component';
 import { EmployeeWisePfRegisterWithInterestComponent } from './opening-balance-capture/employee-wise-pf-register-with-interest/employee-wise-pf-register-with-interest.component';
+import { SalaryDetailsComponent } from './salary-details/salary-details.component';
 
 
 @NgModule({
@@ -105,7 +106,10 @@ import { EmployeeWisePfRegisterWithInterestComponent } from './opening-balance-c
                         {path:'advance/viewAdvance/masterMaintanace/eligibilityMaster',component:EligibilityMasterComponent},
                         {path:'advance/viewAdvance/masterMaintanace/purposeMaster',component:PurposeMasterComponent},
                         {path:'advance/viewAdvance/masterMaintanace/purposeTaggingMaster',component:PurposeTAggingMasterComponent},
+                        {path:'salary-details',component:SalaryDetailsComponent},
 
+
+                    
 
                         
 
