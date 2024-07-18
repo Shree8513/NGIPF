@@ -51,6 +51,7 @@ import { EligibilityMasterComponent } from './advance/eligibility-master/eligibi
 import { PurposeMasterComponent } from './advance/purpose-master/purpose-master.component';
 import { PurposeTAggingMasterComponent } from './advance/purpose-tagging-master/purpose-tagging-master.component';
 import { SalaryDetailsComponent } from './salary-details/salary-details.component';
+import { EmployeeWisePfRegisterWithInterestComponent } from './opening-balance-capture/employee-wise-pf-register-with-interest/employee-wise-pf-register-with-interest.component';
 
 
 @NgModule({
@@ -90,6 +91,7 @@ import { SalaryDetailsComponent } from './salary-details/salary-details.componen
                         {path:'opening-balance-capture/permission_of_initiation',component:PermissionOfInitiationComponent},
                         {path:'opening-balance-capture/pending_req_list_of_other_user',component:PendingRequestListOfOtherUserComponent},
                         {path:'opening-balance-capture/operator_list_having-ve_balance_bypassed',component:OperatorListHavingVeBalanceBypassedComponent},
+                        {path:'opening-balance-capture/employee-wise-pf-register',component:EmployeeWisePfRegisterWithInterestComponent},
                         {path:'Final-payment',component:FinalPaymentComponent},
                         {path:'Final-payment/final-payment-application',component:FinalPaymentApplicationComponent},
                         {path:'Final-payment/final-payment-eligibility-master',component:FinalPaymentEligibilityMasterComponent},
