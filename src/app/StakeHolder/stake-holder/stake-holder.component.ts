@@ -37,7 +37,8 @@ export class StakeHolderComponent implements OnInit {
     }
 
     editStakeHolder() {
-        this.router.navigate(['stakeHolder/editStakHolder']);
+        this.router.navigate(['stakeHolder/editStakHolder', { data: JSON.stringify(this.stakeHolder) }]);
     }
+    
     addStakeHolder() {}
 }
