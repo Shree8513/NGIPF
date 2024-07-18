@@ -21,7 +21,6 @@ import { BsnlServiceProviderComponent } from './shared/components/bsnl-service-p
 import { ViewEmployeeComponent } from './employeeDetails/view-employee/view-employee.component';
 import { EntryEmployeeComponent } from './employeeDetails/entry-employee/entry-employee.component';
 import { SerachEmployeeComponent } from './employeeDetails/serach-employee/serach-employee.component';
-import { StakeHolderComponent } from './stake-holder/stake-holder.component';
 import { InterestRateMasterComponent } from './interestRateMaster/interest-rate-master/interest-rate-master.component';
 import { AddInterestRateComponent } from './interestRateMaster/add-interest-rate/add-interest-rate.component';
 import { DelegatedRoleComponent } from './delegated-role/delegated-role.component';
@@ -52,6 +51,12 @@ import { PurposeMasterComponent } from './advance/purpose-master/purpose-master.
 import { PurposeTAggingMasterComponent } from './advance/purpose-tagging-master/purpose-tagging-master.component';
 import { SalaryDetailsComponent } from './salary-details/salary-details.component';
 import { EmployeeWisePfRegisterWithInterestComponent } from './opening-balance-capture/employee-wise-pf-register-with-interest/employee-wise-pf-register-with-interest.component';
+import { StakeHolderComponent } from './stakeHolder/stake-holder/stake-holder.component';
+import { AddStakeholderComponent } from './stakeHolder/stake-holder/add-stakeholder/add-stakeholder.component';
+import { EditStakeholderComponent } from './stakeHolder/stake-holder/edit-stakeholder/edit-stakeholder.component';
+
+
+
 
 
 @NgModule({
@@ -107,6 +112,9 @@ import { EmployeeWisePfRegisterWithInterestComponent } from './opening-balance-c
                         {path:'advance/viewAdvance/masterMaintanace/purposeMaster',component:PurposeMasterComponent},
                         {path:'advance/viewAdvance/masterMaintanace/purposeTaggingMaster',component:PurposeTAggingMasterComponent},
                         {path:'salary-details',component:SalaryDetailsComponent},
+                        { path: 'stakeHolder', component: StakeHolderComponent },
+                        { path: 'stakeHolder/editStakHolder', component: EditStakeholderComponent },
+                        { path: 'stakeHolder/addStakHolder', component: AddStakeholderComponent },
 
 
                         
