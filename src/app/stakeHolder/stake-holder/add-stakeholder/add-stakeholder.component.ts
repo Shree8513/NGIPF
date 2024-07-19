@@ -21,25 +21,24 @@ interface RecommendingAuthorityCount {
   styleUrls: ['./add-stakeholder.component.scss']
 })
 export class AddStakeholderComponent implements OnInit {
-
-  value: boolean = false;
-    editStakeHolder!: FormGroup;
+    value: boolean = false;
+    addStakeHolder!: FormGroup;
     dropdownSanctionAdminCount: SanctionAdminCount[] = [];
+    testdropdownSanctionAdminCount: SanctionAdminCount[] = [];
     dropdownSanctionAdminNature: SanctionAdminNature[] = [];
+    testdropdownSanctionAdminNature: SanctionAdminNature[] = [];
     dropdownRecommendingAuthorityReq: RecommendingAuthorityReq[] = [];
+    testdropdownRecommendingAuthorityReq: RecommendingAuthorityReq[] = [];
     dropdownRecommendingAuthorityCount: RecommendingAuthorityCount[] = [];
-    stakeHolderTableValue: any;
+    testdropdownRecommendingAuthorityCount: RecommendingAuthorityCount[] = [];
 
+
+    stakeHolderTableValue: any;
     constructor(private fb: FormBuilder, private route: ActivatedRoute) {
-        this.dropdownSanctionAdminCount = [
-            { sanctionAdminCount: 'Single' },
-            { sanctionAdminCount: 'Single & Same' },
-            { sanctionAdminCount: 'Multiple' },
-           
-        ];
-        this.dropdownSanctionAdminNature = [{ sanctionAdminNature: 'Type 1' }, { sanctionAdminNature: 'Type 2' }, { sanctionAdminNature: 'Type 3' }];
-        this.dropdownRecommendingAuthorityReq = [{ required: 'Yes' }, { required: 'No' }];
-        this.dropdownRecommendingAuthorityCount = [{ count: 'Single' }, { count: 'Multiple' }];
+        this.testdropdownSanctionAdminCount = this.dropdownSanctionAdminCount = [{ sanctionAdminCount: 'Single & Same' }, { sanctionAdminCount: 'Single' }, { sanctionAdminCount: 'Multiple' }];
+        this.testdropdownSanctionAdminNature = this.dropdownSanctionAdminNature=[{ sanctionAdminNature: 'Type 1' }, { sanctionAdminNature: 'Type 2' }, { sanctionAdminNature: 'Type 3' }];
+        this.testdropdownRecommendingAuthorityReq = this.dropdownRecommendingAuthorityReq=[{ required: 'Yes' }, { required: 'No' }];
+       this.testdropdownRecommendingAuthorityCount= this.dropdownRecommendingAuthorityCount = [{ count: 'Single' }, { count: 'Multiple' }];
     }
 
     ngOnInit(): void {
@@ -48,14 +47,24 @@ export class AddStakeholderComponent implements OnInit {
             if (params['data']) {
                 this.stakeHolderTableValue = JSON.parse(params['data']);
                 console.log('StakeHolder data:', this.stakeHolderTableValue);
-                this.populateForm();
+                this.initializeForm();
+
+                this.dropdownSanctionAdminCount = [{ sanctionAdminCount: this.stakeHolderTableValue[0].sanctionCount }];
+                this.dropdownSanctionAdminNature = [{ sanctionAdminNature: this.stakeHolderTableValue[0].sanctionNature }];
+                this.dropdownRecommendingAuthorityReq = [{ required: this.stakeHolderTableValue[0].recommendingAuthRequired }];
+                this.dropdownRecommendingAuthorityCount = [{ count: this.stakeHolderTableValue[0].recommendingCount }];
+
+                console.log(this.stakeHolderTableValue[0]);
+
+                //  this.populateForm();
+                // console.log(params['data'])
             }
         });
     }
 
     initializeForm(): void {
-        this.editStakeHolder = this.fb.group({
-            HOA: [{ value: '', disabled: !this.value }],
+        this.addStakeHolder = this.fb.group({
+            HOA: [{ value: this.stakeHolderTableValue != null ? this.stakeHolderTableValue[0].intHoaCode : '', disabled: !this.value }],
             PFDAdmin: [{ value: '', disabled: !this.value }],
             dropdownSanctionAdminCount: [{ value: '', disabled: !this.value }],
             dropdownSanctionAdminNature: [{ value: '', disabled: !this.value }],
@@ -65,38 +74,43 @@ export class AddStakeholderComponent implements OnInit {
         });
     }
 
-    populateForm(): void {
-        if (this.stakeHolderTableValue && this.stakeHolderTableValue.length > 0) {
-            const firstStakeHolder = this.stakeHolderTableValue[this.stakeHolderTableValue.length - 1];
-            this.editStakeHolder.patchValue({
-                HOA: firstStakeHolder.intHoaCode,
-                // Populate other form fields similarly
-            });
-        }
-    }
+    // populateForm(): void {
+    //     if (this.stakeHolderTableValue && this.stakeHolderTableValue.length > 0) {
+    //         // const hoa = this.
+    //         const firstStakeHolder = this.stakeHolderTableValue[this.stakeHolderTableValue.length - 1];
+    //         this.editStakeHolder.patchValue({
+    //             HOA: firstStakeHolder.intHoaCode,
+    //             // Populate other form fields similarly
+    //         });
+    //     }
+    // }
 
     isInvalidAndTouched(controlName: string): boolean {
-        const control = this.editStakeHolder.get(controlName);
+        const control = this.addStakeHolder.get(controlName);
         return control && control.invalid && (control.dirty || control.touched);
     }
 
     toggleEdit(event: any): void {
         const enabled = event.checked;
         if (enabled) {
-            this.editStakeHolder.enable();
+            this.addStakeHolder.enable();
+            this.dropdownSanctionAdminCount= this.testdropdownSanctionAdminCount;    
+            this.dropdownSanctionAdminNature=this.testdropdownSanctionAdminNature;
+            this.dropdownRecommendingAuthorityReq = this.testdropdownRecommendingAuthorityReq
         } else {
-            this.editStakeHolder.disable();
+            this.addStakeHolder.disable();
         }
     }
 
     resetForm(): void {
-        this.editStakeHolder.reset();
+        this.addStakeHolder.reset();
     }
 
     approveForm(): void {
-        if (this.editStakeHolder.valid) {
+        if (this.addStakeHolder.valid) {
             // Handle search logic here
         }
     }
+
 
 }

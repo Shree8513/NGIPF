@@ -14,7 +14,7 @@ export class EmployeeDetailsService {
     constructor(private http: HttpClient, private toastService: ToastService) { }
 
     getTresury(): Observable<IapiResponce> {
-        return this.http.get<IapiResponce>(this.BaseURL + 'api/Treasery/GetAllTreasury').pipe(
+        return this.http.get<IapiResponce>(this.BaseURL + 'api/v1/EmployeeView/GetAllTreasury').pipe(
             catchError((error) => {
                 throw this.toastService.showError(error.Message);
             })

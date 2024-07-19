@@ -10,8 +10,8 @@ interface Salary {
     code: string;
 }
 interface Treasury {
-    trName: string;
-    trCode: string;
+    treasuryName: string;
+    treasuryCode: string;
 }
 interface PFDAdmin {
     pfdName: string;
@@ -71,9 +71,9 @@ export class SerachEmployeeComponent implements OnInit {
 
     getTresury() {
         this.EmployeeDetailsService.getTresury().subscribe((response) => {
-            if (response.apiResponseStatus == 1 || response.apiResponseStatus == 3) {
+            if (response.apiResponseStatus == 0 ||response.apiResponseStatus == 1 || response.apiResponseStatus == 3) {
                 response.result.map((item, index) => {
-                    item.trName = item.trName + ' (' + item.trCode + ')';
+                    item.treasuryName = item.treasuryName + ' (' + item.treasuryCode + ')';
                 });
                 this.dropdownItemTreasuryname = response.result;
             }

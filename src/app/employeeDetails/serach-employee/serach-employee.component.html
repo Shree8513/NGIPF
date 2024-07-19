@@ -11,7 +11,7 @@
                     <div class="field flex-1">
                         <div class="flex-column flex gap-2">
                             <label>Treasury<span>*</span></label>
-                            <p-dropdown [options]="dropdownItemTreasuryname" formControlName="Treasury" optionLabel="trName" placeholder="select Treasury name"></p-dropdown>
+                            <p-dropdown [options]="dropdownItemTreasuryname" formControlName="Treasury" optionLabel="treasuryName" placeholder="select Treasury name"></p-dropdown>
 
                             <small *ngIf="isInvalidAndTouched('Treasury')" class="p-error"> Treasury is required. </small>
                         </div>

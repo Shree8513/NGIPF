@@ -21,7 +21,7 @@ interface RecommendingAuthorityCount {
 })
 export class EditStakeholderComponent implements OnInit {
 
-  value: boolean = false;
+     value: boolean = false;
     editStakeHolder!: FormGroup;
     dropdownSanctionAdminCount: SanctionAdminCount[] = [];
     testdropdownSanctionAdminCount: SanctionAdminCount[] = [];
@@ -74,16 +74,16 @@ export class EditStakeholderComponent implements OnInit {
         });
     }
 
-    populateForm(): void {
-        if (this.stakeHolderTableValue && this.stakeHolderTableValue.length > 0) {
-            // const hoa = this.
-            const firstStakeHolder = this.stakeHolderTableValue[this.stakeHolderTableValue.length - 1];
-            this.editStakeHolder.patchValue({
-                HOA: firstStakeHolder.intHoaCode,
-                // Populate other form fields similarly
-            });
-        }
-    }
+    // populateForm(): void {
+    //     if (this.stakeHolderTableValue && this.stakeHolderTableValue.length > 0) {
+    //         // const hoa = this.
+    //         const firstStakeHolder = this.stakeHolderTableValue[this.stakeHolderTableValue.length - 1];
+    //         this.editStakeHolder.patchValue({
+    //             HOA: firstStakeHolder.intHoaCode,
+    //             // Populate other form fields similarly
+    //         });
+    //     }
+    // }
 
     isInvalidAndTouched(controlName: string): boolean {
         const control = this.editStakeHolder.get(controlName);
